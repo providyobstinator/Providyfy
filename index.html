@@ -110,12 +110,24 @@
       <div class="card"><h3>Agency</h3><p class="price">Custom</p><p class="muted">Multi-location & agencies</p></div>
     </div>
   </section>  <section id="contact">
-    <h2>Contact Us</h2>
-    <div class="card">
-      <p class="muted">Reach us on WhatsApp for a free consultation.</p>
-      <a class="btn" href="https://wa.me/447765472559" target="_blank">Chat on WhatsApp</a>
-      <p class="muted" style="margin-top:10px">Email: support@providify.com</p>
-    </div>
+  <h2>Contact Us</h2>
+  <div class="card">
+
+    <!-- CONTACT FORM -->
+    <form action="https://formspree.io/f/mvgenpdj" method="POST" class="grid" style="max-width:500px">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+      <button class="btn" type="submit">Send Message</button>
+    </form>
+
+    <!-- WHATSAPP BUTTON -->
+    <p class="muted" style="margin-top:20px">Or chat with us instantly on WhatsApp</p>
+    <a class="btn outline" href="https://wa.me/447765472559" target="_blank">
+      Chat on WhatsApp
+    </a>
+
+  </div>
   </section>
 </main><footer>
   <div class="container grid grid-3">
