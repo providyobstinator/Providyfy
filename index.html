@@ -1,138 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Providify | Ethical Google Review Growth Worldwide</title>
-  <meta name="description" content="Providify helps businesses worldwide grow genuine, Google policy-safe Google reviews to boost trust and local rankings." />
-  <meta name="robots" content="index, follow">
-  <meta name="keywords" content="google review growth, google reviews service, google review management, ethical google reviews, google reviews agency">
+<title>Providify | Ethical Google Review Growth</title>
+<meta name="description" content="Grow genuine Google reviews ethically. No fake reviews, no passwords. Trusted worldwide.">
+<meta name="keywords" content="google review growth, ethical google reviews, increase google reviews, google reviews local seo">
+<meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Providify – Ethical Google Review Growth">
-  <meta property="og:description" content="Grow genuine Google reviews ethically across the globe.">
-  <meta property="og:type" content="website">
+<style>
+:root{
+  --primary:#2563eb; --primary-dark:#1e40af;
+  --dark:#0f172a; --muted:#64748b;
+  --bg:#f8fafc; --card:#ffffff;
+}
+body.dark{
+  --bg:#020617; --card:#020617;
+  --dark:#e5e7eb; --muted:#94a3b8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:Inter,system-ui;
+  background:var(--bg);color:var(--dark);transition:.3s;
+}
+.container{max-width:1200px;margin:auto;padding:24px}
+a{text-decoration:none;color:inherit}
 
-  <style>
-    :root{
-      --primary:#2563eb;
-      --dark:#0f172a;
-      --muted:#64748b;
-      --bg:#f8fafc;
-      --card:#ffffff;
-    }
+/* HEADER */
+header{background:var(--card);border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:50}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:28px;font-weight:900;color:var(--primary)}
+.nav a{margin-left:18px;font-weight:600}
+.toggle{cursor:pointer}
 
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background:var(--bg);
-      color:var(--dark);
-    }
+/* BUTTON */
+.btn{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;padding:14px 26px;border-radius:999px;
+  font-weight:700;display:inline-block;transition:.25s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
 
-    a{text-decoration:none;color:inherit}
-    .container{max-width:1200px;margin:auto;padding:24px}
+/* SECTIONS */
+section{padding:90px 0}
+h1{font-size:48px}
+h2{font-size:36px;margin-bottom:12px}
+p{color:var(--muted);line-height:1.7}
 
-    header{
-      background:#fff;
-      border-bottom:1px solid #e5e7eb;
-      position:sticky;
-      top:0;
-      z-index:10;
-    }
+/* HERO */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
 
-    .nav{display:flex;justify-content:space-between;align-items:center}
-    .logo{font-weight:800;font-size:26px;color:var(--primary)}
-    .nav a{margin-left:18px;font-weight:600}
+/* CARDS */
+.card{
+  background:var(--card);padding:32px;border-radius:18px;
+  border:1px solid #e5e7eb;box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
 
-    .btn{
-      background:linear-gradient(135deg,#2563eb,#1d4ed8);
-      color:#fff;
-      padding:14px 24px;
-      border-radius:14px;
-      font-weight:700;
-      display:inline-block;
-      box-shadow:0 12px 30px rgba(37,99,235,.35);
-    }
+/* GRID */
+.grid{display:grid;gap:28px}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-4{grid-template-columns:repeat(4,1fr)}
 
-    .btn.outline{
-      background:#fff;
-      color:var(--primary);
-      border:2px solid var(--primary);
-      box-shadow:none;
-    }
+/* FORM */
+input,textarea,select{
+  width:100%;padding:15px;border-radius:14px;
+  border:1px solid #cbd5e1;margin-bottom:16px;
+  background:transparent;color:inherit
+}
 
-    section{padding:70px 0}
-    h1{font-size:44px}
-    h2{font-size:32px}
-    h3{margin-top:10px}
-    p{color:var(--muted);line-height:1.7}
+/* FLOAT */
+.wa{
+  position:fixed;right:20px;bottom:20px;
+  background:#25D366;color:#fff;
+  padding:14px 20px;border-radius:999px;font-weight:800
+}
 
-    .hero{
-      display:grid;
-      grid-template-columns:1.2fr 1fr;
-      gap:32px;
-      align-items:center;
-    }
-
-    .badge{
-      background:#e0e7ff;
-      padding:6px 12px;
-      border-radius:999px;
-      font-weight:700;
-      display:inline-block;
-    }
-
-    .card{
-      background:var(--card);
-      padding:26px;
-      border-radius:18px;
-      border:1px solid #e5e7eb;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-    }
-
-    .grid{display:grid;gap:22px}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-4{grid-template-columns:repeat(4,1fr)}
-
-    .icon{
-      width:44px;
-      height:44px;
-      border-radius:12px;
-      background:#eef2ff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-    }
-
-    footer{
-      background:#020617;
-      color:#cbd5f5;
-      text-align:center;
-      padding:40px 20px;
-      margin-top:80px;
-    }
-
-    .wa{
-      position:fixed;
-      right:20px;
-      bottom:20px;
-      background:#25D366;
-      color:#fff;
-      padding:14px 18px;
-      border-radius:999px;
-      font-weight:800;
-    }
-
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-      h1{font-size:34px}
-    }
-  </style>
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero,.grid-2,.grid-4{grid-template-columns:1fr}
+  h1{font-size:36px}
+}
+</style>
 </head>
 
 <body>
@@ -141,99 +92,131 @@
   <div class="container nav">
     <div class="logo">Providify</div>
     <nav>
-      <a href="#trust">Why Us</a>
-      <a href="#book" class="btn outline">Book Call</a>
+      <a href="#how">How It Works</a>
+      <a href="#predictor">Growth Predictor</a>
+      <a href="#contact">Contact</a>
+      <span class="toggle" onclick="toggleDark()">🌙</span>
     </nav>
   </div>
 </header>
 
 <main class="container">
 
+<!-- HERO -->
 <section class="hero">
   <div>
-    <span class="badge">Google-Safe • Worldwide • Trusted</span>
     <h1>Grow Google Reviews<br>Without Risk</h1>
-    <p>No fake reviews. No passwords. Ethical Google review growth.</p>
-    <a href="#book" class="btn">Get Free Strategy Call</a>
+    <p>⭐ Clients gain <b>20–50 genuine reviews</b> in 90 days.<br>No fake reviews. No passwords.</p>
+    <a href="#contact" class="btn">💬 Free Strategy</a>
   </div>
 
   <div class="card">
     <h3>Why Providify?</h3>
     <ul>
       <li>✔ Google-policy compliant</li>
-      <li>✔ Works worldwide</li>
-      <li>✔ Results in 7–14 days</li>
-      <li>✔ No login access needed</li>
+      <li>✔ Safe growth planning</li>
+      <li>✔ No login access</li>
+      <li>✔ Long-term SEO</li>
     </ul>
   </div>
 </section>
 
-<section id="trust">
-  <h2>Why Businesses Trust Providify</h2>
+<!-- HOW -->
+<section id="how">
+  <h2>How It Works</h2>
   <div class="grid grid-4">
-    <div class="card"><div class="icon">🌍</div><h3>20+ Countries</h3><p>USA, UK, Canada, UAE & Europe</p></div>
-    <div class="card"><div class="icon">⭐</div><h3>Real Results</h3><p>3.5 → 4.6 rating growth</p></div>
-    <div class="card"><div class="icon">🔒</div><h3>100% Safe</h3><p>No fake or paid reviews</p></div>
-    <div class="card"><div class="icon">⏱️</div><h3>Fast Start</h3><p>Results in 7–14 days</p></div>
+    <div class="card">🔍 Audit</div>
+    <div class="card">🧠 Strategy</div>
+    <div class="card">⭐ Review Growth</div>
+    <div class="card">📈 Ranking Boost</div>
   </div>
 </section>
 
-<section id="book">
-  <h2>Book a Free Strategy Call</h2>
+<!-- 🔮 GROWTH PREDICTOR -->
+<section id="predictor">
+  <h2>Google Review Growth Predictor™</h2>
+  <p style="max-width:720px">
+    Simulate how your Google profile could grow over the next 90 days using
+    safe, Google-compliant review velocity.
+  </p>
+
+  <div class="grid grid-2">
+
+    <div class="card">
+      <label>Current Reviews</label>
+      <input type="number" id="curReviews" placeholder="e.g. 18">
+
+      <label>Current Rating</label>
+      <input type="number" step="0.1" id="curRating" placeholder="e.g. 3.9">
+
+      <label>Growth Speed</label>
+      <select id="speed">
+        <option value="safe">Conservative (Safest)</option>
+        <option value="balanced">Moderate (Recommended)</option>
+        <option value="fast">Aggressive (Risky)</option>
+      </select>
+
+      <button class="btn" onclick="predict()">Predict Growth</button>
+    </div>
+
+    <div class="card">
+      <h3>90-Day Projection</h3>
+      <p id="outReviews">📊 Reviews: —</p>
+      <p id="outRating">⭐ Rating: —</p>
+      <p id="outRisk">⚠️ Risk Level: —</p>
+
+      <a class="btn"
+         href="https://wa.me/447765472559?text=Hi%20I%20used%20your%20Google%20Review%20Growth%20Predictor%20and%20want%20a%20safe%20plan"
+         target="_blank">
+        Get This Growth Plan
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
   <div class="card">
-    <iframe src="https://calendly.com/PROVIDIFY/30min" width="100%" height="650"></iframe>
+    <form action="https://formspree.io/f/mvgenpdj" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Tell us about your business" required></textarea>
+      <input type="hidden" name="_redirect" value="https://wa.me/447765472559">
+      <button class="btn">Send Message</button>
+    </form>
   </div>
 </section>
 
 </main>
 
-<footer>
-  <p>© 2025 Providify. Ethical Google Review Growth.</p>
-  <a href="https://instagram.com/providyfy" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="32">
-  </a>
-</footer>
+<a class="wa" href="https://wa.me/447765472559">💬 WhatsApp</a>
 
-<a class="wa" href="https://wa.me/447765472559" target="_blank">💬 Free Strategy</a>
+<script>
+function toggleDark(){
+  document.body.classList.toggle("dark");
+}
 
-<!-- ================= GOOGLE ADS COPY & KEYWORDS ================= -->
+/* Growth Predictor Logic */
+function predict(){
+  const r=parseInt(document.getElementById("curReviews").value||0);
+  const rate=parseFloat(document.getElementById("curRating").value||3.5);
+  const speed=document.getElementById("speed").value;
 
-<!-- 
-GOOGLE ADS HEADLINES (use any 3):
-1. Grow Google Reviews Safely
-2. Ethical Google Review Service
-3. No Fake Reviews – Policy Safe
-4. Boost Google Ratings Fast
-5. Trusted Google Review Agency
-6. Get More Google Reviews Today
+  let add=12, risk="Low";
+  if(speed==="balanced"){ add=22; risk="Medium"; }
+  if(speed==="fast"){ add=40; risk="High"; }
 
-DESCRIPTIONS:
-1. Grow genuine Google reviews using 100% policy-safe methods. No passwords needed.
-2. Trusted worldwide. Improve Google ratings & local rankings ethically.
-3. Free strategy call. Results start in 7–14 days. Works globally.
-4. No fake reviews. No risk. Real growth for local businesses.
+  const finalReviews=r+add;
+  const finalRating=Math.min(5,(rate+(add*0.02))).toFixed(1);
 
-KEYWORDS (Phrase / Exact):
-"google review growth service"
-"google reviews management"
-"ethical google reviews"
-"google reviews agency"
-"increase google reviews safely"
-"google review help"
-"local business google reviews"
-
-NEGATIVE KEYWORDS (IMPORTANT):
-free
-job
-internship
-software
-fake
-bot
-generator
-hack
-script
--->
+  document.getElementById("outReviews").innerText="📊 Reviews: "+finalReviews;
+  document.getElementById("outRating").innerText="⭐ Rating: "+finalRating;
+  document.getElementById("outRisk").innerText="⚠️ Risk Level: "+risk;
+}
+</script>
 
 </body>
 </html>
-      
+   
