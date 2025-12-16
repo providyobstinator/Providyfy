@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Providify | Proven Google Review Growth</title>
 
-<meta name="description" content="We’ve successfully helped businesses worldwide grow genuine Google reviews safely. Proven results. No fake reviews.">
+<meta name="description" content="We help businesses worldwide grow genuine Google reviews safely. Proven results across countries.">
 <meta name="robots" content="index, follow">
 
 <style>
@@ -25,12 +25,12 @@ body.dark{
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Inter,system-ui;
+  font-family:Inter,system-ui,Arial;
   background:var(--bg);
   color:var(--dark);
 }
-.container{max-width:1200px;margin:auto;padding:24px}
 a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:24px}
 
 /* HEADER */
 header{
@@ -39,8 +39,8 @@ header{
   position:sticky;top:0;z-index:50;
 }
 .nav{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:28px;font-weight:900;color:var(--primary)}
-.nav a{margin-left:18px;font-weight:600}
+.logo{font-size:26px;font-weight:900;color:var(--primary)}
+.nav a{margin-left:16px;font-weight:600}
 .toggle{cursor:pointer}
 
 /* BUTTON */
@@ -52,11 +52,16 @@ header{
   font-weight:700;
   display:inline-block;
 }
+.btn.outline{
+  background:#fff;
+  color:#2563eb;
+  border:2px solid #2563eb;
+}
 
 /* SECTIONS */
-section{padding:90px 0}
-h1{font-size:48px}
-h2{font-size:36px;margin-bottom:12px}
+section{padding:80px 0}
+h1{font-size:44px}
+h2{font-size:34px;margin-bottom:12px}
 p{color:var(--muted);line-height:1.7}
 
 /* HERO */
@@ -69,27 +74,26 @@ p{color:var(--muted);line-height:1.7}
 /* CARD */
 .card{
   background:var(--card);
-  padding:32px;
+  padding:28px;
   border-radius:18px;
   border:1px solid #e5e7eb;
-  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  box-shadow:0 16px 36px rgba(0,0,0,.08);
 }
 
 /* GRID */
-.grid{display:grid;gap:28px}
-.grid-3{grid-template-columns:repeat(3,1fr)}
+.grid{display:grid;gap:24px}
 .grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
 
-/* REVIEWS CAROUSEL */
+/* REVIEWS */
 .carousel{
   display:flex;
-  gap:24px;
+  gap:20px;
   overflow-x:auto;
-  scroll-snap-type:x mandatory;
+  padding-bottom:10px;
 }
 .review-card{
-  min-width:320px;
-  scroll-snap-align:start;
+  min-width:280px;
   position:relative;
 }
 .review-card img{
@@ -98,22 +102,22 @@ p{color:var(--muted);line-height:1.7}
 }
 .flag{
   position:absolute;
-  top:12px;
-  left:12px;
+  top:10px;
+  left:10px;
   background:#fff;
-  padding:6px 10px;
+  padding:4px 8px;
   border-radius:999px;
-  font-size:14px;
   font-weight:700;
+  font-size:14px;
 }
 
 /* FORM */
 input,textarea{
   width:100%;
-  padding:15px;
-  border-radius:14px;
+  padding:14px;
+  border-radius:12px;
   border:1px solid #cbd5e1;
-  margin-bottom:16px;
+  margin-bottom:14px;
 }
 
 /* FLOAT */
@@ -135,7 +139,7 @@ footer{
   text-align:center;
   padding:40px 20px;
 }
-.footer-social img{
+footer img{
   width:32px;
   filter:invert(1);
   margin-top:14px;
@@ -143,8 +147,8 @@ footer{
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero,.grid-3,.grid-4{grid-template-columns:1fr}
-  h1{font-size:36px}
+  .hero,.grid-4,.grid-2{grid-template-columns:1fr}
+  h1{font-size:34px}
 }
 </style>
 </head>
@@ -155,6 +159,7 @@ footer{
   <div class="container nav">
     <div class="logo">Providify</div>
     <nav>
+      <a href="#how">How It Works</a>
       <a href="#results">Results</a>
       <a href="#contact">Contact</a>
       <span class="toggle" onclick="toggleDark()">🌙</span>
@@ -164,74 +169,74 @@ footer{
 
 <main class="container">
 
-<!-- HERO -->
 <section class="hero">
   <div>
-    <h1>We’ve Done This Before.<br>We’ll Do It For You.</h1>
+    <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
     <p>
-      We help businesses worldwide grow <b>genuine Google reviews</b> safely.
-      Proven results across multiple countries.
+      Proven, ethical Google review growth for businesses worldwide.
+      No fake reviews. No risk.
     </p>
 
     <div style="display:flex;gap:14px;flex-wrap:wrap">
       <a href="#contact" class="btn">💬 Free Strategy</a>
-      <a href="#" class="btn" onclick="openInstaDM()">📩 Instagram DM</a>
+      <a href="#" class="btn outline" onclick="openInstaDM()">📩 Instagram DM</a>
     </div>
   </div>
 
   <div class="card">
-    <h3>Why Businesses Trust Us</h3>
+    <h3>Why Providify?</h3>
     <ul>
-      <li>✔ Real review growth (no bots)</li>
       <li>✔ Multi-country experience</li>
-      <li>✔ Google-policy safe</li>
+      <li>✔ Real customer reviews</li>
+      <li>✔ Google-safe process</li>
       <li>✔ Repeatable success</li>
     </ul>
   </div>
 </section>
 
-<!-- RESULTS / REVIEWS -->
+<section id="how">
+  <h2>How It Works</h2>
+  <div class="grid grid-4">
+    <div class="card">🔍 Audit</div>
+    <div class="card">🧠 Strategy</div>
+    <div class="card">⭐ Review Growth</div>
+    <div class="card">📈 Visibility Boost</div>
+  </div>
+</section>
+
 <section id="results">
-  <h2>Proven Google Review Results</h2>
-  <p>
-    These are real examples of businesses we’ve helped improve ratings,
-    visibility and trust — safely.
-  </p>
+  <h2>Real Google Review Results</h2>
+  <p>Businesses we’ve already helped — safely and successfully.</p>
 
   <div class="carousel">
 
     <div class="card review-card">
       <span class="flag">🇺🇸 USA</span>
-      <img src="https://i.imgur.com/1Q9Z1Zm.png">
-      <p><b>3.7 → 4.6 Rating</b><br>Restaurant – New York</p>
+      <img src="images/review-usa.png" alt="USA Google reviews">
+      <p><b>3.6 → 4.6 Rating</b><br>Restaurant – New York</p>
     </div>
 
     <div class="card review-card">
       <span class="flag">🇬🇧 UK</span>
-      <img src="https://i.imgur.com/4KQZQpT.png">
-      <p><b>+48 Genuine Reviews</b><br>Dental Clinic – London</p>
+      <img src="images/review-uk.png" alt="UK Google reviews">
+      <p><b>+48 Reviews</b><br>Dental Clinic – London</p>
     </div>
 
     <div class="card review-card">
       <span class="flag">🇨🇦 Canada</span>
-      <img src="https://i.imgur.com/v7KxM0N.png">
+      <img src="images/review-canada.png" alt="Canada Google reviews">
       <p><b>Map Pack Boost</b><br>Home Services – Toronto</p>
     </div>
 
     <div class="card review-card">
       <span class="flag">🇦🇪 UAE</span>
-      <img src="https://i.imgur.com/0Z8FzvP.png">
-      <p><b>High-Trust Profile</b><br>Real Estate – Dubai</p>
+      <img src="images/review-uae.png" alt="UAE Google reviews">
+      <p><b>High Trust Profile</b><br>Real Estate – Dubai</p>
     </div>
 
   </div>
-
-  <p style="font-size:14px;margin-top:12px">
-    *Screenshots shared with permission. Results vary by business.
-  </p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <h2>Contact Us</h2>
   <div class="card">
@@ -249,9 +254,7 @@ footer{
 
 <footer>
   <p>© 2025 Providify. Proven Google Review Growth.</p>
-  <div class="footer-social">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-  </div>
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
 </footer>
 
 <a class="wa" href="https://wa.me/447765472559">💬 WhatsApp</a>
@@ -264,11 +267,10 @@ function openInstaDM(){
   const msg="Hi, I need help with Google review growth";
   navigator.clipboard.writeText(msg).then(()=>{
     window.open("https://www.instagram.com/direct/t/providyfy/","_blank");
-    alert("Message copied. Paste in Instagram DM 👍");
+    alert("Message copied. Paste it in Instagram DM 👍");
   });
 }
 </script>
 
 </body>
-</html> 
-
+</html>
