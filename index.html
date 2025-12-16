@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,7 @@
 
 <title>Providify | Ethical Google Review Growth</title>
 <meta name="description" content="Grow genuine Google reviews ethically. No fake reviews, no passwords. Trusted worldwide.">
-<meta name="keywords" content="google review growth, ethical google reviews, increase google reviews, google reviews local seo">
+<meta name="keywords" content="google review growth, ethical google reviews, google reviews service, local seo reviews">
 <meta name="robots" content="index, follow">
 
 <style>
@@ -25,24 +25,32 @@ body{
   margin:0;font-family:Inter,system-ui;
   background:var(--bg);color:var(--dark);transition:.3s;
 }
-.container{max-width:1200px;margin:auto;padding:24px}
 a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:24px}
 
 /* HEADER */
-header{background:var(--card);border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:50}
+header{
+  background:var(--card);
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;top:0;z-index:50
+}
 .nav{display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:28px;font-weight:900;color:var(--primary)}
 .nav a{margin-left:18px;font-weight:600}
 .toggle{cursor:pointer}
 
-/* BUTTON */
+/* BUTTONS */
 .btn{
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));
   color:#fff;padding:14px 26px;border-radius:999px;
   font-weight:700;display:inline-block;transition:.25s;
+  box-shadow:0 12px 30px rgba(37,99,235,.35)
 }
 .btn:hover{transform:translateY(-2px)}
-.btn.outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn.outline{
+  background:transparent;color:var(--primary);
+  border:2px solid var(--primary);box-shadow:none
+}
 
 /* SECTIONS */
 section{padding:90px 0}
@@ -53,15 +61,16 @@ p{color:var(--muted);line-height:1.7}
 /* HERO */
 .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px}
 
-/* CARDS */
+/* CARD */
 .card{
   background:var(--card);padding:32px;border-radius:18px;
-  border:1px solid #e5e7eb;box-shadow:0 20px 40px rgba(0,0,0,.08);
+  border:1px solid #e5e7eb;box-shadow:0 20px 40px rgba(0,0,0,.08)
 }
 
 /* GRID */
 .grid{display:grid;gap:28px}
 .grid-2{grid-template-columns:repeat(2,1fr)}
+.grid-3{grid-template-columns:repeat(3,1fr)}
 .grid-4{grid-template-columns:repeat(4,1fr)}
 
 /* FORM */
@@ -71,16 +80,35 @@ input,textarea,select{
   background:transparent;color:inherit
 }
 
-/* FLOAT */
+/* RISK METER */
+.meter{height:12px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+.meter span{display:block;height:100%;width:0;transition:.6s}
+
+/* FLOATING */
 .wa{
   position:fixed;right:20px;bottom:20px;
   background:#25D366;color:#fff;
-  padding:14px 20px;border-radius:999px;font-weight:800
+  padding:14px 20px;border-radius:999px;
+  font-weight:800
 }
+
+/* FOOTER */
+footer{
+  background:#020617;color:#cbd5f5;
+  text-align:center;padding:40px 20px
+}
+.footer-social{
+  margin-top:14px;display:flex;justify-content:center;gap:18px
+}
+.footer-social img{
+  width:32px;filter:invert(1);
+  opacity:.9;transition:.25s
+}
+.footer-social img:hover{transform:scale(1.1);opacity:1}
 
 /* RESPONSIVE */
 @media(max-width:900px){
-  .hero,.grid-2,.grid-4{grid-template-columns:1fr}
+  .hero,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
   h1{font-size:36px}
 }
 </style>
@@ -93,7 +121,8 @@ input,textarea,select{
     <div class="logo">Providify</div>
     <nav>
       <a href="#how">How It Works</a>
-      <a href="#predictor">Growth Predictor</a>
+      <a href="#risk">Risk Meter</a>
+      <a href="#predictor">Predictor</a>
       <a href="#contact">Contact</a>
       <span class="toggle" onclick="toggleDark()">🌙</span>
     </nav>
@@ -106,17 +135,25 @@ input,textarea,select{
 <section class="hero">
   <div>
     <h1>Grow Google Reviews<br>Without Risk</h1>
-    <p>⭐ Clients gain <b>20–50 genuine reviews</b> in 90 days.<br>No fake reviews. No passwords.</p>
-    <a href="#contact" class="btn">💬 Free Strategy</a>
+    <p>⭐ Clients gain <b>20–50 genuine reviews</b> in 90 days.<br>
+    No fake reviews. No passwords.</p>
+
+    <div style="display:flex;gap:14px;flex-wrap:wrap">
+      <a href="#contact" class="btn">💬 Free Strategy</a>
+      <a href="https://ig.me/m/providyfy?text=Hi%20I%20need%20help%20with%20Google%20review%20growth"
+         class="btn outline" target="_blank">
+        📩 Instagram DM
+      </a>
+    </div>
   </div>
 
   <div class="card">
     <h3>Why Providify?</h3>
     <ul>
       <li>✔ Google-policy compliant</li>
+      <li>✔ Worldwide businesses</li>
       <li>✔ Safe growth planning</li>
-      <li>✔ No login access</li>
-      <li>✔ Long-term SEO</li>
+      <li>✔ Cancel anytime</li>
     </ul>
   </div>
 </section>
@@ -132,46 +169,44 @@ input,textarea,select{
   </div>
 </section>
 
-<!-- 🔮 GROWTH PREDICTOR -->
-<section id="predictor">
-  <h2>Google Review Growth Predictor™</h2>
-  <p style="max-width:720px">
-    Simulate how your Google profile could grow over the next 90 days using
-    safe, Google-compliant review velocity.
-  </p>
-
+<!-- RISK METER -->
+<section id="risk">
+  <h2>Google Review Risk Meter™</h2>
   <div class="grid grid-2">
-
     <div class="card">
-      <label>Current Reviews</label>
-      <input type="number" id="curReviews" placeholder="e.g. 18">
-
-      <label>Current Rating</label>
-      <input type="number" step="0.1" id="curRating" placeholder="e.g. 3.9">
-
-      <label>Growth Speed</label>
-      <select id="speed">
-        <option value="safe">Conservative (Safest)</option>
-        <option value="balanced">Moderate (Recommended)</option>
-        <option value="fast">Aggressive (Risky)</option>
-      </select>
-
-      <button class="btn" onclick="predict()">Predict Growth</button>
+      <input type="number" id="riskReviews" placeholder="Total reviews">
+      <input type="number" step="0.1" id="riskRating" placeholder="Rating">
+      <button class="btn" onclick="checkRisk()">Check Risk</button>
     </div>
-
     <div class="card">
-      <h3>90-Day Projection</h3>
-      <p id="outReviews">📊 Reviews: —</p>
-      <p id="outRating">⭐ Rating: —</p>
-      <p id="outRisk">⚠️ Risk Level: —</p>
-
-      <a class="btn"
-         href="https://wa.me/447765472559?text=Hi%20I%20used%20your%20Google%20Review%20Growth%20Predictor%20and%20want%20a%20safe%20plan"
-         target="_blank">
-        Get This Growth Plan
+      <div class="meter"><span id="riskBar"></span></div>
+      <p id="riskText">—</p>
+      <a class="btn" href="https://wa.me/447765472559" target="_blank">
+        Get Safe Growth Plan
       </a>
     </div>
+  </div>
+</section>
 
+<!-- GROWTH PREDICTOR -->
+<section id="predictor">
+  <h2>90-Day Growth Predictor™</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      <input type="number" id="curReviews" placeholder="Current reviews">
+      <input type="number" step="0.1" id="curRating" placeholder="Current rating">
+      <select id="speed">
+        <option value="safe">Conservative</option>
+        <option value="balanced">Moderate</option>
+        <option value="fast">Aggressive</option>
+      </select>
+      <button class="btn" onclick="predict()">Predict</button>
+    </div>
+    <div class="card">
+      <p id="outReviews">📊 —</p>
+      <p id="outRating">⭐ —</p>
+      <p id="outRisk">⚠️ —</p>
+    </div>
   </div>
 </section>
 
@@ -191,32 +226,41 @@ input,textarea,select{
 
 </main>
 
+<footer>
+  <p>© 2025 Providify. Ethical Google Review Growth.</p>
+  <div class="footer-social">
+    <a href="https://ig.me/m/providyfy?text=Hi%20I%20need%20help%20with%20Google%20review%20growth"
+       target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    </a>
+  </div>
+</footer>
+
 <a class="wa" href="https://wa.me/447765472559">💬 WhatsApp</a>
 
 <script>
-function toggleDark(){
-  document.body.classList.toggle("dark");
+function toggleDark(){document.body.classList.toggle("dark");}
+
+function checkRisk(){
+  const r=document.getElementById("riskReviews").value||0;
+  const bar=document.getElementById("riskBar");
+  const text=document.getElementById("riskText");
+  if(r<20){bar.style.width="80%";bar.style.background="#ef4444";text.innerText="High Risk";}
+  else if(r<50){bar.style.width="50%";bar.style.background="#f59e0b";text.innerText="Medium Risk";}
+  else{bar.style.width="30%";bar.style.background="#22c55e";text.innerText="Low Risk";}
 }
 
-/* Growth Predictor Logic */
 function predict(){
-  const r=parseInt(document.getElementById("curReviews").value||0);
-  const rate=parseFloat(document.getElementById("curRating").value||3.5);
-  const speed=document.getElementById("speed").value;
-
-  let add=12, risk="Low";
-  if(speed==="balanced"){ add=22; risk="Medium"; }
-  if(speed==="fast"){ add=40; risk="High"; }
-
-  const finalReviews=r+add;
-  const finalRating=Math.min(5,(rate+(add*0.02))).toFixed(1);
-
-  document.getElementById("outReviews").innerText="📊 Reviews: "+finalReviews;
-  document.getElementById("outRating").innerText="⭐ Rating: "+finalRating;
-  document.getElementById("outRisk").innerText="⚠️ Risk Level: "+risk;
+  const r=parseInt(curReviews.value||0);
+  const rate=parseFloat(curRating.value||3.5);
+  let add=12,risk="Low";
+  if(speed.value==="balanced"){add=22;risk="Medium"}
+  if(speed.value==="fast"){add=40;risk="High"}
+  outReviews.innerText="📊 Reviews: "+(r+add);
+  outRating.innerText="⭐ Rating: "+Math.min(5,(rate+add*0.02)).toFixed(1);
+  outRisk.innerText="⚠️ Risk: "+risk;
 }
 </script>
 
 </body>
-</html>
-   
+      </html>
