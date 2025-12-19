@@ -1,86 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Providify Admin</title>
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-  <style>
-    body{
-      margin:0;
-      font-family:system-ui;
-      background:#020617;
-      color:#e5e7eb;
-      display:flex;
-    }
-    aside{
-      width:220px;
-      background:#020617;
-      border-right:1px solid #1e293b;
-      padding:20px;
-    }
-    main{
-      flex:1;
-      padding:30px;
-    }
-    h2{margin-top:0}
-    button{
-      background:#ef4444;
-      border:none;
-      padding:10px 18px;
-      border-radius:8px;
-      color:#fff;
-      cursor:pointer;
-    }
-    .card{
-      background:#020617;
-      border:1px solid #1e293b;
-      padding:20px;
-      border-radius:12px;
-      margin-bottom:20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<style>
+body{background:#020617;color:#e5e7eb;font-family:system-ui;padding:30px}
+.card{border:1px solid #1e293b;border-radius:14px;padding:20px;margin-bottom:20px}
+</style>
 </head>
-
 <body>
-
-<aside>
-  <h2>Providify</h2>
-  <p>Admin Panel</p>
-  <button onclick="logout()">Logout</button>
-</aside>
-
-<main>
-  <h1>Welcome Admin 👑</h1>
-
-  <div class="card">
-    <h3>Clients</h3>
-    <div id="clients"></div>
-  </div>
-</main>
-
-<script>
-const supabase = window.supabase.createClient(
-  "https://gpighjxdwcjjnxdgqvvr.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwaWdoanhkd2Nqam54ZGdxdnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwOTY1OTMsImV4cCI6MjA4MTY3MjU5M30.DGS_UVANoD9k2BNGCqswwqMgDioRpFM--5rpS7IKMRE"
-);
-
-async function loadClients(){
-  const { data } = await supabase.from("clients").select("*");
-  const box = document.getElementById("clients");
-  box.innerHTML = "";
-
-  data.forEach(c=>{
-    box.innerHTML += `<p>📌 ${c.business_name}</p>`;
-  });
-}
-
-async function logout(){
-  await supabase.auth.signOut();
-  location.href = "index.html";
-}
-
-loadClients();
-</script>
-
+<h1>Admin Dashboard 👑</h1>
+<div class="card">Clients list + progress control (backend ready)</div>
+<a href="index.html">Logout</a>
 </body>
 </html>
