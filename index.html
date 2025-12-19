@@ -1,152 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Providyfy — Ethical Google Review Growth</title>
-<meta name="description" content="Grow real Google reviews safely. No fake reviews. Proven multi-country results.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Providyfy | Ethical Google Review Growth</title>
+
+<meta name="description" content="Providyfy helps businesses grow real Google reviews ethically. Multi-country proof. No fake reviews. Google-safe.">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-  --bg:#020617;--card:#071026;--muted:#9aa8bf;--accent:#2563eb;
+  --bg:#020617;
+  --card:#071026;
+  --muted:#94a3b8;
+  --accent:#2563eb;
 }
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter;background:var(--bg);color:#eaf0ff}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Arial;
+  background:var(--bg);
+  color:#e5e7eb;
+}
 a{text-decoration:none;color:inherit}
-.container{max-width:1100px;margin:auto;padding:24px}
-.card{background:var(--card);border-radius:16px;padding:22px;border:1px solid rgba(255,255,255,.05);margin-top:24px}
-h1,h2,h3{margin:0 0 12px}
-p{color:var(--muted);line-height:1.6}
 
-/* HERO */
-.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
-.btn{padding:12px 20px;border-radius:999px;background:linear-gradient(135deg,#2563eb,#1e40af);color:#fff;font-weight:700;border:none;cursor:pointer}
-.btn.outline{background:transparent;border:2px solid var(--accent);color:var(--accent)}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-
-/* SERVICES */
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-
-/* PROOFS */
-.carousel{display:flex;gap:16px;overflow-x:auto}
-.carousel img{width:260px;border-radius:14px;border:1px solid rgba(255,255,255,.08)}
-
-/* FAQ */
-.faq details{margin-bottom:12px}
-.faq summary{cursor:pointer;font-weight:600}
-
-/* FLOAT CONTACT */
-.float{
- position:fixed;right:20px;bottom:20px;
- background:#25D366;color:#022c22;
- padding:14px 18px;border-radius:999px;font-weight:800
+/* TOP BAR */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 24px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+  font-size:22px;
+  color:var(--accent);
+}
+.logo span{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  padding:6px 10px;
+  border-radius:10px;
+  color:#fff;
+}
+.menu{
+  font-size:22px;
+  cursor:pointer;
 }
 
+/* SIDEBAR */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  display:none;
+  z-index:90;
+}
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-340px;
+  width:340px;
+  height:100%;
+  background:#020617;
+  padding:24px;
+  transition:.3s;
+  z-index:100;
+}
+.sidebar.active{left:0}
+.overlay.active{display:block}
+.sidebar h3{margin-bottom:20px}
+.sidebar a{
+  display:block;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+}
+.sidebar input,.sidebar textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:none;
+  background:#020617;
+  color:#fff;
+}
+
+/* LAYOUT */
+.container{
+  max-width:1150px;
+  margin:auto;
+  padding:40px 24px;
+}
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:28px;
+  margin-top:32px;
+  border:1px solid rgba(255,255,255,.05);
+}
+h1{font-size:46px}
+h2{font-size:34px}
+h3{font-size:22px}
+p{color:var(--muted);line-height:1.7}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+}
+.cta{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+.btn{
+  padding:14px 26px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  font-weight:700;
+  border:none;
+}
+.btn.outline{
+  background:transparent;
+  border:2px solid var(--accent);
+  color:var(--accent);
+}
+
+/* GRIDS */
+.grid-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.grid-4{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+/* FLOAT */
+.float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  color:#022c22;
+  padding:16px 22px;
+  border-radius:999px;
+  font-weight:800;
+}
+
+/* RESPONSIVE */
 @media(max-width:900px){
-.hero,.services{grid-template-columns:1fr}
+  .hero,.grid-3,.grid-4{grid-template-columns:1fr}
+  h1{font-size:36px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="topbar">
+  <div class="logo">
+    <span>P</span> Providyfy
+  </div>
+  <div class="menu" onclick="openSidebar()">☰</div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <h3>Providyfy</h3>
+  <a onclick="showSide('about')">About</a>
+  <a onclick="showSide('feedback')">Feedback</a>
+  <a onclick="showSide('contact')">Contact</a>
+
+  <div id="about" class="side" style="display:none">
+    <p>Providyfy helps businesses grow genuine Google reviews ethically and safely across multiple countries.</p>
+  </div>
+
+  <div id="feedback" class="side" style="display:none">
+    <form action="https://formspree.io/f/mvgenpdj" method="POST">
+      <input name="name" placeholder="Your name">
+      <textarea name="feedback" placeholder="Your feedback"></textarea>
+      <button class="btn">Send Feedback</button>
+    </form>
+  </div>
+
+  <div id="contact" class="side" style="display:none">
+    <form action="https://formspree.io/f/mvgenpdj" method="POST">
+      <input name="name" placeholder="Your name">
+      <input name="email" type="email" placeholder="Your email">
+      <textarea name="message" placeholder="Message"></textarea>
+      <button class="btn">Send Message</button>
+    </form>
+    <p style="margin-top:10px">
+      <a href="https://wa.me/447765472559" target="_blank">WhatsApp</a> |
+      <a href="https://instagram.com/providyfy" target="_blank">Instagram</a>
+    </p>
+  </div>
+</div>
+
+<!-- MAIN -->
 <div class="container">
 
 <section class="hero">
-<div>
-<h1>Real Google Reviews.<br>No Fakes. Google-Safe.</h1>
-<p>We help businesses grow genuine Google reviews ethically. Trusted across UK, USA, Canada & UAE.</p>
+  <div>
+    <h1>Real Google Reviews.<br>No Fakes. Google-Safe.</h1>
+    <p>We help businesses worldwide grow honest Google reviews using ethical, compliant systems — proven across UK, USA, Canada, UAE & India.</p>
 
-<div class="cta">
-<a class="btn" href="https://wa.me/447765472559?text=Hi%20Providyfy%2C%20I%20need%20help%20with%20Google%20reviews" target="_blank">💬 Free Strategy</a>
-<button class="btn outline" onclick="document.getElementById('contact').scrollIntoView()">📩 Request Quote</button>
-</div>
-</div>
+    <div class="cta">
+      <a class="btn" href="https://wa.me/447765472559" target="_blank">💬 Free Strategy</a>
+      <button class="btn outline" onclick="openSidebar();showSide('contact')">📩 Contact</button>
+    </div>
+  </div>
 
-<div class="card">
-<h3>Quick Results</h3>
-<p><b>🇬🇧 Dental Clinic:</b> +48 reviews in 30 days</p>
-<p><b>🇺🇸 Restaurant:</b> 3.6 → 4.6 rating</p>
-<p><b>🇦🇪 Real Estate:</b> Map Pack visibility boost</p>
-</div>
+  <div class="card">
+    <h3>Quick Proof</h3>
+    <p>🇬🇧 Dental Clinic → +48 reviews</p>
+    <p>🇺🇸 Restaurant → 3.6 → 4.6 rating</p>
+    <p>🇦🇪 Real Estate → Map Pack boost</p>
+  </div>
 </section>
 
-<!-- SERVICES -->
 <section class="card">
 <h2>Our Services</h2>
-<div class="services">
-<div class="card">
-<h3>⭐ Google Review Growth</h3>
-<p>Real customers. Ethical outreach. No bots or fake accounts.</p>
-</div>
-<div class="card">
-<h3>🛡 Reputation Repair</h3>
-<p>Suppress negative impact & rebuild trust organically.</p>
-</div>
-<div class="card">
-<h3>📍 Local SEO Boost</h3>
-<p>Improve Google Maps visibility & conversion.</p>
-</div>
+<div class="grid-3">
+  <div class="card"><h3>Google Review Growth</h3><p>We encourage real customers to leave honest feedback.</p></div>
+  <div class="card"><h3>Reputation Repair</h3><p>Rebuild trust and suppress negative impact ethically.</p></div>
+  <div class="card"><h3>Local SEO Boost</h3><p>Improve Google Maps visibility & conversions.</p></div>
 </div>
 </section>
 
-<!-- PROOF SCREENSHOTS -->
 <section class="card">
-<h2>Real Proof Screenshots</h2>
-<p>Blurred previews shown for client privacy.</p>
-<div class="carousel">
-<img src="images/proof-uk.png" alt="UK proof">
-<img src="images/proof-usa.png" alt="USA proof">
-<img src="images/proof-canada.png" alt="Canada proof">
+<h2>Why Providyfy</h2>
+<div class="grid-4">
+  <div class="card">Google-policy compliant</div>
+  <div class="card">Multi-country execution</div>
+  <div class="card">No bots / no fake reviews</div>
+  <div class="card">Performance-based options</div>
 </div>
 </section>
 
-<!-- FAQ -->
-<section class="card faq">
-<h2>FAQ — Trust & Safety</h2>
-
-<details>
-<summary>Is this Google-safe?</summary>
-<p>Yes. We follow Google’s review policies strictly.</p>
-</details>
-
-<details>
-<summary>Do you post fake reviews?</summary>
-<p>No. We only encourage real customers to leave honest feedback.</p>
-</details>
-
-<details>
-<summary>How fast are results?</summary>
-<p>Most campaigns show movement within 14–30 days.</p>
-</details>
-
-<details>
-<summary>Is there a guarantee?</summary>
-<p>We offer performance-based options depending on your case.</p>
-</details>
+<section class="card">
+<h2>Compliance & Safety</h2>
+<p>We strictly follow Google’s review policies. We never sell fake reviews or use automated accounts. All campaigns are designed to protect your business listing long-term.</p>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="card">
-<h2>Contact Us</h2>
-<p>WhatsApp: <b>+44 7765 472559</b></p>
-<p>
-<a href="https://instagram.com/providyfy" target="_blank">Instagram</a> •
-<a href="https://wa.me/447765472559" target="_blank">WhatsApp</a>
-</p>
+<section class="card">
+<h2>FAQ</h2>
+<p><b>Is this Google-safe?</b><br>Yes. 100% policy-compliant.</p>
+<p><b>Do you remove reviews?</b><br>No. We focus on ethical growth.</p>
+<p><b>How fast results?</b><br>Usually within 14–30 days.</p>
 </section>
 
 <footer class="card">
 <p>© 2025 Providyfy — Ethical Google Review Growth</p>
-<p>We do not sell fake reviews.</p>
+<p>WhatsApp: +44 7765 472559</p>
 </footer>
 
 </div>
 
 <a class="float" href="https://wa.me/447765472559" target="_blank">💬 WhatsApp</a>
 
+<script>
+function openSidebar(){
+  sidebar.classList.add('active');
+  overlay.classList.add('active');
+}
+function closeSidebar(){
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+}
+function showSide(id){
+  document.querySelectorAll('.side').forEach(s=>s.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+</script>
+
 </body>
 </html>
-    
