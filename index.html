@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Providify | Proven Google Review Growth</title>
 
+<title>Providify | Proven Google Review Growth</title>
 <meta name="description" content="We help businesses worldwide grow genuine Google reviews safely. Proven results across countries.">
 
-<!-- Font Awesome Icons -->
+<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
@@ -27,7 +27,7 @@ body.dark{
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:system-ui,Arial;
+  font-family:Inter,system-ui,Arial;
   background:var(--bg);
   color:var(--dark);
 }
@@ -78,8 +78,8 @@ header{
 
 /* SECTIONS */
 section{padding:80px 0}
-h1{font-size:42px}
-h2{font-size:32px}
+h1{font-size:44px}
+h2{font-size:34px;margin-bottom:12px}
 p{color:var(--muted);line-height:1.7}
 
 /* HERO */
@@ -95,7 +95,7 @@ p{color:var(--muted);line-height:1.7}
   padding:28px;
   border-radius:18px;
   border:1px solid #e5e7eb;
-  box-shadow:0 14px 32px rgba(0,0,0,.08);
+  box-shadow:0 16px 36px rgba(0,0,0,.08);
 }
 
 /* GRID */
@@ -111,13 +111,13 @@ p{color:var(--muted);line-height:1.7}
   padding-bottom:10px;
 }
 .review-card{min-width:280px}
-.flag{font-size:18px;font-weight:700}
+.flag{font-weight:800;font-size:18px}
 
 /* FORM */
 input,textarea{
   width:100%;
   padding:14px;
-  border-radius:10px;
+  border-radius:12px;
   border:1px solid #cbd5e1;
   margin-bottom:14px;
 }
@@ -130,9 +130,10 @@ input,textarea{
   border-radius:999px;
   font-weight:700;
   border:none;
+  cursor:pointer;
 }
 
-/* FLOAT SOCIAL */
+/* SOCIAL FLOAT BOTTOM */
 .social-float{
   position:fixed;
   right:20px;
@@ -148,7 +149,7 @@ input,textarea{
   justify-content:center;
   border-radius:50%;
   color:#fff;
-  font-size:24px;
+  font-size:26px;
 }
 .ig{background:#E1306C}
 .wa{background:#25D366}
@@ -177,6 +178,7 @@ footer{
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#how" onclick="toggleMenu()">How It Works</a>
   <a href="#results" onclick="toggleMenu()">Results</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#" onclick="openFeedback()">Feedback</a>
   <a href="#" onclick="toggleDark()">🌙 Dark Mode</a>
 </div>
@@ -205,14 +207,16 @@ footer{
 <section class="hero">
   <div>
     <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
-    <p>Ethical Google review growth for businesses worldwide.</p>
-    <a href="#contact" class="btn">Free Strategy</a>
+    <p>Proven, ethical Google review growth for businesses worldwide.</p>
+    <a href="#contact" class="btn">💬 Free Strategy</a>
   </div>
+
   <div class="card">
     <ul>
+      <li>✔ Multi-country experience</li>
       <li>✔ Real customer reviews</li>
       <li>✔ Google-safe process</li>
-      <li>✔ Multi-country experience</li>
+      <li>✔ Repeatable success</li>
     </ul>
   </div>
 </section>
@@ -222,13 +226,13 @@ footer{
   <h2>About Providify</h2>
   <div class="grid grid-2">
     <div class="card">
-      Providify helps businesses grow trust and visibility through
-      policy-safe Google review strategies.
+      Providify helps businesses grow trust and visibility using
+      ethical, policy-safe Google review strategies.
     </div>
     <div class="card">
       ✔ No fake reviews<br>
       ✔ Long-term growth<br>
-      ✔ Proven repeatable systems
+      ✔ Global execution
     </div>
   </div>
 </section>
@@ -247,24 +251,21 @@ footer{
 <!-- RESULTS / PROOFS -->
 <section id="results">
   <h2>Real Google Review Results</h2>
-  <p>Proof of work across different countries.</p>
+  <p>Proof of work across multiple countries.</p>
 
   <div class="carousel">
     <div class="card review-card">
       <div class="flag">🇺🇸 USA</div>
       <p><b>3.6 → 4.6 Rating</b><br>Restaurant – New York</p>
     </div>
-
     <div class="card review-card">
       <div class="flag">🇬🇧 UK</div>
       <p><b>+48 Reviews</b><br>Dental Clinic – London</p>
     </div>
-
     <div class="card review-card">
       <div class="flag">🇨🇦 Canada</div>
       <p><b>Map Pack Boost</b><br>Home Services – Toronto</p>
     </div>
-
     <div class="card review-card">
       <div class="flag">🇦🇪 UAE</div>
       <p><b>High Trust Profile</b><br>Real Estate – Dubai</p>
@@ -272,11 +273,16 @@ footer{
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT (RESTORED FORM) -->
 <section id="contact">
-  <h2>Contact</h2>
+  <h2>Contact Us</h2>
   <div class="card">
-    DM us directly on Instagram or WhatsApp.
+    <form action="https://formspree.io/f/mvgenpdj" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Tell us about your business" required></textarea>
+      <button class="btn">Send Message</button>
+    </form>
   </div>
 </section>
 
@@ -286,7 +292,7 @@ footer{
   © 2025 Providify. Proven Google Review Growth.
 </footer>
 
-<!-- SOCIAL FLOAT -->
+<!-- SOCIAL ICONS BOTTOM -->
 <div class="social-float">
   <a class="ig" href="https://www.instagram.com/direct/t/providyfy/" target="_blank">
     <i class="fab fa-instagram"></i>
