@@ -3,40 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Providify | Login</title>
+  <title>Providify Login</title>
 
+  <!-- Supabase -->
   <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 
   <style>
     body{
-      font-family: system-ui, Arial;
-      background:#020617;
-      color:#e5e7eb;
+      margin:0;
+      min-height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      height:100vh;
-      margin:0;
+      background:radial-gradient(circle at top,#020617,#000);
+      font-family:system-ui, Arial;
+      color:#e5e7eb;
     }
     .card{
-      background:#020617;
-      border:1px solid #1e293b;
-      padding:32px;
-      border-radius:16px;
       width:100%;
       max-width:380px;
-      box-shadow:0 20px 40px rgba(0,0,0,.5);
+      background:#020617;
+      border:1px solid #1e293b;
+      border-radius:20px;
+      padding:30px;
+      box-shadow:0 20px 50px rgba(0,0,0,.6);
     }
-    h1{margin-bottom:10px}
-    p{color:#94a3b8;margin-bottom:24px}
+    h1{
+      margin:0;
+      font-size:32px;
+    }
+    p{
+      color:#94a3b8;
+      margin-bottom:20px;
+    }
     input{
       width:100%;
       padding:14px;
       margin-bottom:14px;
-      border-radius:10px;
-      border:1px solid #334155;
+      border-radius:12px;
+      border:1px solid #1e293b;
       background:#020617;
-      color:#fff;
+      color:#e5e7eb;
+      font-size:15px;
     }
     button{
       width:100%;
@@ -45,6 +53,7 @@
       border-radius:999px;
       background:linear-gradient(135deg,#2563eb,#1e40af);
       color:#fff;
+      font-size:16px;
       font-weight:700;
       cursor:pointer;
     }
@@ -60,18 +69,28 @@
     <input id="email" type="email" placeholder="Email" />
     <input id="password" type="password" placeholder="Password" />
 
-    <button onclick="login()">Login</button>
+    <!-- 🔥 IMPORTANT: type="button" + onclick -->
+    <button type="button" onclick="login()">Login</button>
   </div>
 
 <script>
   const supabaseUrl = "https://gpighjxdwcjjnxdgqvvr.supabase.co";
-  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwaWdoanhkd2Nqam54ZGdxdnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwOTY1OTMsImV4cCI6MjA4MTY3MjU5M30.DGS_UVANoD9k2BNGCqswwqMgDioRpFM--5rpS7IKMRE";
+  const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwaWdoanhkd2Nqam54ZGdxdnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwOTY1OTMsImV4cCI6MjA4MTY3MjU5M30.DGS_UVANoD9k2BNGCqswwqMgDioRpFM--5rpS7IKMRE";
 
-  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+  const supabase = window.supabase.createClient(
+    supabaseUrl,
+    supabaseKey
+  );
 
   async function login(){
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
+
+    if(!email || !password){
+      alert("Email aur password bhar bsdk");
+      return;
+    }
 
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
@@ -82,3 +101,27 @@
       alert(error.message);
       return;
     }
+
+    const userId = data.user.id;
+
+    const { data: profile, error: roleError } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", userId)
+      .single();
+
+    if(roleError){
+      alert("Role nahi mila");
+      return;
+    }
+
+    if(profile.role === "admin"){
+      window.location.href = "admin.html";
+    } else {
+      window.location.href = "client.html";
+    }
+  }
+</script>
+
+</body>
+</html>
