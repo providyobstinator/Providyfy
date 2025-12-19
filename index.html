@@ -1,126 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Providify Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Providify | Google Review Growth</title>
 
-  <!-- Supabase -->
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-  <style>
-    body{
-      margin:0;
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:radial-gradient(circle at top,#020617,#000);
-      font-family:system-ui, Arial;
-      color:#e5e7eb;
-    }
-    .card{
-      width:100%;
-      max-width:380px;
-      background:#020617;
-      border:1px solid #1e293b;
-      border-radius:20px;
-      padding:30px;
-      box-shadow:0 20px 50px rgba(0,0,0,.6);
-    }
-    h1{
-      margin:0;
-      font-size:32px;
-    }
-    p{
-      color:#94a3b8;
-      margin-bottom:20px;
-    }
-    input{
-      width:100%;
-      padding:14px;
-      margin-bottom:14px;
-      border-radius:12px;
-      border:1px solid #1e293b;
-      background:#020617;
-      color:#e5e7eb;
-      font-size:15px;
-    }
-    button{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:999px;
-      background:linear-gradient(135deg,#2563eb,#1e40af);
-      color:#fff;
-      font-size:16px;
-      font-weight:700;
-      cursor:pointer;
-    }
-  </style>
+<style>
+body{
+  margin:0;
+  font-family:Inter,system-ui;
+  background:#020617;
+  color:#e5e7eb;
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:24px}
+
+/* SIDEBAR */
+.sidebar{
+  position:fixed;
+  left:0;top:0;
+  width:220px;height:100vh;
+  background:#020617;
+  border-right:1px solid #1e293b;
+  padding:20px;
+}
+.sidebar h2{margin-top:0}
+.sidebar button{
+  width:100%;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #1e293b;
+  background:#020617;
+  color:#fff;
+  cursor:pointer;
+}
+.sidebar button:hover{background:#2563eb}
+
+/* SOCIAL */
+.social{
+  position:absolute;
+  bottom:20px;left:20px;
+  display:flex;gap:14px;
+}
+.social a{
+  font-size:22px;
+}
+
+/* MAIN */
+.main{
+  margin-left:220px;
+  padding:40px;
+}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+}
+h1{font-size:44px}
+p{color:#94a3b8}
+
+/* CARDS */
+.card{
+  background:#020617;
+  border:1px solid #1e293b;
+  border-radius:16px;
+  padding:24px;
+  margin-bottom:20px;
+}
+
+/* PROOFS */
+.proofs{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+}
+.proof{
+  min-width:260px;
+}
+
+/* SLIDE PANELS */
+.panel{
+  display:none;
+}
+.panel.active{
+  display:block;
+}
+
+/* FORM */
+input,textarea{
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:1px solid #1e293b;
+  background:#020617;
+  color:#fff;
+}
+button.submit{
+  background:#2563eb;
+  border:none;
+  padding:12px;
+  border-radius:999px;
+  font-weight:700;
+  color:#fff;
+}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>Providify</h1>
-    <p>Admin & Client Login</p>
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <h2>Providify</h2>
+  <button onclick="showPanel('about')">About</button>
+  <button onclick="showPanel('feedback')">Feedback</button>
+  <button onclick="showPanel('contact')">Contact</button>
+  <a href="admin.html"><button>Login</button></a>
 
-    <input id="email" type="email" placeholder="Email" />
-    <input id="password" type="password" placeholder="Password" />
+  <div class="social">
+    <a href="https://instagram.com/providyfy" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/447765472559" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  </div>
+</div>
 
-    <!-- 🔥 IMPORTANT: type="button" + onclick -->
-    <button type="button" onclick="login()">Login</button>
+<!-- MAIN -->
+<div class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
+      <p>Proven, ethical Google review growth. No fake reviews. No risk.</p>
+    </div>
+    <div class="card">
+      <h3>Why Providify?</h3>
+      <ul>
+        <li>✔ Multi-country results</li>
+        <li>✔ Real customers</li>
+        <li>✔ Google-safe process</li>
+        <li>✔ Repeatable growth</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROOFS -->
+  <section>
+    <h2>Country-Wise Proofs</h2>
+    <div class="proofs">
+      <div class="card proof">🇺🇸 USA<br>3.6 → 4.6 Rating</div>
+      <div class="card proof">🇬🇧 UK<br>+48 Reviews</div>
+      <div class="card proof">🇨🇦 Canada<br>Map Pack Boost</div>
+      <div class="card proof">🇦🇪 UAE<br>High-Trust Profile</div>
+    </div>
+  </section>
+
+  <!-- PANELS -->
+  <div id="about" class="card panel">
+    <h3>About Providify</h3>
+    <p>We help businesses worldwide grow real Google reviews safely using ethical outreach systems.</p>
   </div>
 
+  <div id="feedback" class="card panel">
+    <h3>Feedback</h3>
+    <input placeholder="Your name">
+    <textarea placeholder="Your feedback"></textarea>
+    <button class="submit">Submit</button>
+  </div>
+
+  <div id="contact" class="card panel">
+    <h3>Contact Us</h3>
+    <input placeholder="Email">
+    <textarea placeholder="Message"></textarea>
+    <button class="submit">Send</button>
+  </div>
+
+</div>
+
 <script>
-  const supabaseUrl = "https://gpighjxdwcjjnxdgqvvr.supabase.co";
-  const supabaseKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwaWdoanhkd2Nqam54ZGdxdnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwOTY1OTMsImV4cCI6MjA4MTY3MjU5M30.DGS_UVANoD9k2BNGCqswwqMgDioRpFM--5rpS7IKMRE";
-
-  const supabase = window.supabase.createClient(
-    supabaseUrl,
-    supabaseKey
-  );
-
-  async function login(){
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if(!email || !password){
-      alert("Email aur password bhar bsdk");
-      return;
-    }
-
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password
-    });
-
-    if(error){
-      alert(error.message);
-      return;
-    }
-
-    const userId = data.user.id;
-
-    const { data: profile, error: roleError } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", userId)
-      .single();
-
-    if(roleError){
-      alert("Role nahi mila");
-      return;
-    }
-
-    if(profile.role === "admin"){
-      window.location.href = "admin.html";
-    } else {
-      window.location.href = "client.html";
-    }
-  }
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
 </script>
 
 </body>
