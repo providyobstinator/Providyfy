@@ -3,177 +3,317 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Providify</title>
 
-<!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@phosphor-icons/web"></script>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<title>Providify | Proven Google Review Growth</title>
+<meta name="description" content="We help businesses worldwide grow genuine Google reviews safely. Proven results across countries.">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter}
-body{background:#020617;color:#fff;overflow-x:hidden}
-
-/* TOP BAR */
-.topbar{height:60px;display:flex;align-items:center;padding:0 20px}
-.menu-btn{font-size:28px;cursor:pointer}
-
-/* SIDEBAR */
-.sidebar{
-  position:fixed;top:0;left:-100%;
-  width:80%;max-width:320px;height:100%;
-  background:#020617;padding:24px;
-  transition:.3s;z-index:1000
+:root{
+  --primary:#2563eb;
+  --dark:#0f172a;
+  --muted:#64748b;
+  --bg:#f8fafc;
+  --card:#ffffff;
 }
-.sidebar.active{left:0}
-.sidebar h2{margin-bottom:30px}
-.sidebar a{
-  display:block;padding:14px 0;
-  border-bottom:1px solid rgba(255,255,255,.1);
-  color:#fff;text-decoration:none;cursor:pointer
+body.dark{
+  --bg:#020617;
+  --card:#020617;
+  --dark:#e5e7eb;
+  --muted:#94a3b8;
 }
-.close-btn{font-size:24px;position:absolute;top:20px;right:20px;cursor:pointer}
-
-/* OVERLAY */
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;z-index:900}
-.overlay.active{display:block}
-
-/* MAIN */
-.main{padding:40px 20px}
-.hero h1{font-size:44px;font-weight:800;line-height:1.1}
-.hero p{margin-top:16px;color:#cbd5f5;max-width:500px}
-
-/* PROOFS */
-.proofs{margin-top:30px}
-.proofs span{
-  display:inline-block;margin:6px;padding:10px 16px;
-  border-radius:20px;background:rgba(255,255,255,.08)
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,Arial;
+  background:var(--bg);
+  color:var(--dark);
 }
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:24px}
+
+/* HEADER */
+header{
+  background:var(--card);
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;top:0;z-index:50;
+}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:26px;font-weight:900;color:var(--primary)}
+.menu-btn{font-size:26px;cursor:pointer}
+
+/* SIDE MENU */
+.side-menu{
+  position:fixed;
+  top:0;left:-260px;
+  width:260px;height:100%;
+  background:#020617;
+  color:#fff;
+  padding:30px 20px;
+  transition:.3s;
+  z-index:200;
+}
+.side-menu.active{left:0}
+.side-menu a{
+  display:block;
+  margin:18px 0;
+  font-size:18px;
+  font-weight:600;
+}
+.close{font-size:22px;cursor:pointer}
+
+/* FEEDBACK PANEL */
+.feedback-panel{
+  position:fixed;
+  top:0;right:-420px;
+  width:420px;height:100%;
+  background:var(--card);
+  padding:30px;
+  transition:.3s;
+  z-index:300;
+}
+.feedback-panel.active{right:0}
 
 /* SECTIONS */
-.section{display:none;margin-top:30px}
+section{padding:80px 0}
+h1{font-size:44px}
+h2{font-size:34px;margin-bottom:12px}
+p{color:var(--muted);line-height:1.7}
+
+/* HERO */
+.hero{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:40px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  padding:28px;
+  border-radius:18px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 16px 36px rgba(0,0,0,.08);
+}
+
+/* GRID */
+.grid{display:grid;gap:24px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-2{grid-template-columns:repeat(2,1fr)}
+
+/* RESULTS / PROOFS */
+.carousel{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+.review-card{min-width:280px}
+.flag{font-weight:800;font-size:18px}
+
+/* FORM */
 input,textarea{
-  width:100%;padding:14px;margin:10px 0;
-  border-radius:12px;border:none
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #cbd5e1;
+  margin-bottom:14px;
 }
-button{
-  width:100%;padding:14px;background:#2563eb;
-  border:none;border-radius:12px;color:white;font-weight:600;cursor:pointer
+
+/* BUTTON */
+.btn{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
 }
-button.secondary{background:#334155}
-.socials a{font-size:30px;margin-right:16px;color:white}
-.small{font-size:14px;color:#94a3b8;margin-top:10px}
+
+/* SOCIAL FLOAT BOTTOM */
+.social-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.social-float a{
+  width:54px;height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  font-size:26px;
+}
+.ig{background:#E1306C}
+.wa{background:#25D366}
+
+/* FOOTER */
+footer{
+  background:#020617;
+  color:#cbd5f5;
+  text-align:center;
+  padding:40px;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero,.grid-4,.grid-2{grid-template-columns:1fr}
+  h1{font-size:34px}
+}
 </style>
 </head>
 
 <body>
 
-<!-- TOP -->
-<div class="topbar">
-  <span class="menu-btn" onclick="openMenu()">☰</span>
+<!-- SIDE MENU -->
+<div class="side-menu" id="sideMenu">
+  <div class="close" onclick="toggleMenu()">✖</div>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#how" onclick="toggleMenu()">How It Works</a>
+  <a href="#results" onclick="toggleMenu()">Results</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="#" onclick="openFeedback()">Feedback</a>
+  <a href="#" onclick="toggleDark()">🌙 Dark Mode</a>
 </div>
 
-<!-- SIDEBAR -->
-<div class="sidebar" id="sidebar">
-  <span class="close-btn" onclick="closeMenu()">✕</span>
-  <h2>Providify</h2>
-  <a onclick="show('about')">About</a>
-  <a onclick="show('feedback')">Feedback</a>
-  <a onclick="show('contact')">Contact</a>
-  <a onclick="show('login')">Login / Signup</a>
+<!-- FEEDBACK PANEL -->
+<div class="feedback-panel" id="feedbackPanel">
+  <h2>Feedback</h2>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Feedback"></textarea>
+    <button class="btn">Submit</button>
+  </form>
 </div>
 
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<header>
+  <div class="container nav">
+    <div class="logo">Providify</div>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+  </div>
+</header>
 
-<!-- MAIN -->
-<div class="main">
-  <div class="hero" id="hero">
-    <h1>We've Done This Before.<br>And We'll Do It Again.</h1>
-    <p>Proven, ethical Google review growth. No fake reviews. No risk.</p>
+<main class="container">
 
-    <div class="proofs">
-      <span>🇬🇧 UK</span>
-      <span>🇺🇸 USA</span>
-      <span>🇨🇦 Canada</span>
-      <span>🇦🇺 Australia</span>
-      <span>🇮🇳 India</span>
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
+    <p>Proven, ethical Google review growth for businesses worldwide.</p>
+    <a href="#contact" class="btn">💬 Free Strategy</a>
+  </div>
+
+  <div class="card">
+    <ul>
+      <li>✔ Multi-country experience</li>
+      <li>✔ Real customer reviews</li>
+      <li>✔ Google-safe process</li>
+      <li>✔ Repeatable success</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Providify</h2>
+  <div class="grid grid-2">
+    <div class="card">
+      Providify helps businesses grow trust and visibility using
+      ethical, policy-safe Google review strategies.
+    </div>
+    <div class="card">
+      ✔ No fake reviews<br>
+      ✔ Long-term growth<br>
+      ✔ Global execution
     </div>
   </div>
+</section>
 
-  <div id="about" class="section">
-    <h3>About</h3>
-    <p>We help brands grow real Google reviews safely and ethically across multiple countries.</p>
+<!-- HOW -->
+<section id="how">
+  <h2>How It Works</h2>
+  <div class="grid grid-4">
+    <div class="card">🔍 Audit</div>
+    <div class="card">🧠 Strategy</div>
+    <div class="card">⭐ Review Growth</div>
+    <div class="card">📈 Visibility Boost</div>
   </div>
+</section>
 
-  <div id="feedback" class="section">
-    <h3>Feedback</h3>
-    <textarea placeholder="Your feedback"></textarea>
-    <button>Submit</button>
-  </div>
+<!-- RESULTS / PROOFS -->
+<section id="results">
+  <h2>Real Google Review Results</h2>
+  <p>Proof of work across multiple countries.</p>
 
-  <div id="contact" class="section">
-    <h3>Contact</h3>
-    <p><b>WhatsApp:</b> +44 7765 472559</p>
-    <div class="socials">
-      <a href="https://wa.me/447765472559" target="_blank">
-        <i class="ph ph-whatsapp-logo"></i>
-      </a>
-      <a href="https://instagram.com/providyfy" target="_blank">
-        <i class="ph ph-instagram-logo"></i>
-      </a>
+  <div class="carousel">
+    <div class="card review-card">
+      <div class="flag">🇺🇸 USA</div>
+      <p><b>3.6 → 4.6 Rating</b><br>Restaurant – New York</p>
+    </div>
+    <div class="card review-card">
+      <div class="flag">🇬🇧 UK</div>
+      <p><b>+48 Reviews</b><br>Dental Clinic – London</p>
+    </div>
+    <div class="card review-card">
+      <div class="flag">🇨🇦 Canada</div>
+      <p><b>Map Pack Boost</b><br>Home Services – Toronto</p>
+    </div>
+    <div class="card review-card">
+      <div class="flag">🇦🇪 UAE</div>
+      <p><b>High Trust Profile</b><br>Real Estate – Dubai</p>
     </div>
   </div>
+</section>
 
-  <div id="login" class="section">
-    <h3>Login / Signup</h3>
-    <input id="email" placeholder="Email">
-    <input id="password" type="password" placeholder="Password">
-    <button onclick="login()">Login</button>
-    <button class="secondary" onclick="signup()">Create New Account</button>
-    <p class="small" id="authMsg"></p>
+<!-- CONTACT (RESTORED FORM) -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <div class="card">
+    <form action="https://formspree.io/f/mvgenpdj" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Tell us about your business" required></textarea>
+      <button class="btn">Send Message</button>
+    </form>
   </div>
+</section>
+
+</main>
+
+<footer>
+  © 2025 Providify. Proven Google Review Growth.
+</footer>
+
+<!-- SOCIAL ICONS BOTTOM -->
+<div class="social-float">
+  <a class="ig" href="https://www.instagram.com/direct/t/providyfy/" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a class="wa" href="https://wa.me/447765472559" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </div>
 
 <script>
-/* UI */
-function openMenu(){
-  sidebar.classList.add('active');
-  overlay.classList.add('active');
+function toggleMenu(){
+  document.getElementById("sideMenu").classList.toggle("active");
 }
-function closeMenu(){
-  sidebar.classList.remove('active');
-  overlay.classList.remove('active');
+function toggleDark(){
+  document.body.classList.toggle("dark");
 }
-function show(id){
-  document.querySelectorAll('.section').forEach(s=>s.style.display='none');
-  hero.style.display='none';
-  document.getElementById(id).style.display='block';
-  closeMenu();
-}
-
-/* SUPABASE */
-const supabaseUrl = "https://gpighjxdwcjjnxdgqvvr.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwaWdoanhkd2Nqam54ZGdxdnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwOTY1OTMsImV4cCI6MjA4MTY3MjU5M30.DGS_UVANoD9k2BNGCqswwqMgDioRpFM--5rpS7IKMRE";
-const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-async function login(){
-  const email = email.value;
-  const password = password.value;
-
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-  authMsg.innerText = error ? error.message : "Login successful";
-  // Redirect later:
-  // window.location.href = "client.html";
-}
-
-async function signup(){
-  const email = email.value;
-  const password = password.value;
-
-  const { error } = await supabase.auth.signUp({ email, password });
-  authMsg.innerText = error ? error.message : "Account created. Now login.";
+function openFeedback(){
+  toggleMenu();
+  document.getElementById("feedbackPanel").classList.add("active");
 }
 </script>
 
 </body>
-</html>
+</html>  
