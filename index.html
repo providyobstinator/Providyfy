@@ -3,194 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Providify | Google Review Growth</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<title>Providify</title>
 
 <style>
 body{
   margin:0;
-  font-family:Inter,system-ui;
+  font-family:Inter,Arial;
   background:#020617;
-  color:#e5e7eb;
+  color:#fff;
 }
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:auto;padding:24px}
-
-/* SIDEBAR */
 .sidebar{
   position:fixed;
-  left:0;top:0;
-  width:220px;height:100vh;
+  left:0;
+  top:0;
+  width:220px;
+  height:100%;
   background:#020617;
   border-right:1px solid #1e293b;
   padding:20px;
 }
-.sidebar h2{margin-top:0}
 .sidebar button{
   width:100%;
-  margin-bottom:10px;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #1e293b;
+  margin-bottom:12px;
+  padding:14px;
   background:#020617;
   color:#fff;
-  cursor:pointer;
+  border:1px solid #1e293b;
+  border-radius:12px;
+  font-size:16px;
 }
-.sidebar button:hover{background:#2563eb}
-
-/* SOCIAL */
-.social{
-  position:absolute;
-  bottom:20px;left:20px;
-  display:flex;gap:14px;
-}
-.social a{
-  font-size:22px;
-}
-
-/* MAIN */
 .main{
-  margin-left:220px;
-  padding:40px;
+  margin-left:240px;
+  padding:60px;
 }
-
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:40px;
+.hero h1{
+  font-size:56px;
 }
-h1{font-size:44px}
-p{color:#94a3b8}
-
-/* CARDS */
 .card{
   background:#020617;
   border:1px solid #1e293b;
-  border-radius:16px;
-  padding:24px;
-  margin-bottom:20px;
+  border-radius:18px;
+  padding:30px;
+  margin-top:40px;
 }
-
-/* PROOFS */
-.proofs{
-  display:flex;
-  gap:20px;
-  overflow-x:auto;
-}
-.proof{
-  min-width:260px;
-}
-
-/* SLIDE PANELS */
-.panel{
-  display:none;
-}
-.panel.active{
-  display:block;
-}
-
-/* FORM */
-input,textarea{
+input{
   width:100%;
-  padding:12px;
-  margin-bottom:12px;
-  border-radius:10px;
-  border:1px solid #1e293b;
+  padding:14px;
+  margin-bottom:14px;
+  border-radius:12px;
+  border:1px solid #334155;
   background:#020617;
   color:#fff;
 }
-button.submit{
-  background:#2563eb;
-  border:none;
-  padding:12px;
+.btn{
+  width:100%;
+  padding:14px;
   border-radius:999px;
-  font-weight:700;
+  border:none;
+  background:#2563eb;
   color:#fff;
+  font-size:16px;
 }
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
+.icons a{
+  margin-right:14px;
+  font-size:22px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <h2>Providify</h2>
-  <button onclick="showPanel('about')">About</button>
-  <button onclick="showPanel('feedback')">Feedback</button>
-  <button onclick="showPanel('contact')">Contact</button>
-  <a href="admin.html"><button>Login</button></a>
-
-  <div class="social">
-    <a href="https://instagram.com/providyfy" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://wa.me/447765472559" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  </div>
+  <button onclick="alert('About sidebar')">About</button>
+  <button onclick="alert('Feedback sidebar')">Feedback</button>
+  <button onclick="alert('Contact sidebar')">Contact</button>
+  <button onclick="document.getElementById('login').scrollIntoView()">Login</button>
 </div>
 
-<!-- MAIN -->
 <div class="main">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
-      <p>Proven, ethical Google review growth. No fake reviews. No risk.</p>
-    </div>
-    <div class="card">
-      <h3>Why Providify?</h3>
-      <ul>
-        <li>✔ Multi-country results</li>
-        <li>✔ Real customers</li>
-        <li>✔ Google-safe process</li>
-        <li>✔ Repeatable growth</li>
-      </ul>
-    </div>
-  </section>
+<section class="hero">
+  <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
+  <p>Proven, ethical Google review growth. No fake reviews. No risk.</p>
+</section>
 
-  <!-- PROOFS -->
-  <section>
-    <h2>Country-Wise Proofs</h2>
-    <div class="proofs">
-      <div class="card proof">🇺🇸 USA<br>3.6 → 4.6 Rating</div>
-      <div class="card proof">🇬🇧 UK<br>+48 Reviews</div>
-      <div class="card proof">🇨🇦 Canada<br>Map Pack Boost</div>
-      <div class="card proof">🇦🇪 UAE<br>High-Trust Profile</div>
-    </div>
-  </section>
+<section class="card">
+  <h3>Countries Proof</h3>
+  🇺🇸 USA • 🇬🇧 UK • 🇨🇦 Canada • 🇦🇪 UAE
+</section>
 
-  <!-- PANELS -->
-  <div id="about" class="card panel">
-    <h3>About Providify</h3>
-    <p>We help businesses worldwide grow real Google reviews safely using ethical outreach systems.</p>
+<section id="login" class="card">
+  <h2>Admin & Client Login</h2>
+
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+
+  <button class="btn" onclick="loginUser()">Login</button>
+  <br><br>
+  <button class="btn" onclick="signupUser()">Create New Account</button>
+
+  <div class="icons">
+    <a href="https://wa.me/447765472559" target="_blank">💬 WhatsApp</a>
+    <a href="https://instagram.com/providyfy" target="_blank">📩 Instagram</a>
   </div>
-
-  <div id="feedback" class="card panel">
-    <h3>Feedback</h3>
-    <input placeholder="Your name">
-    <textarea placeholder="Your feedback"></textarea>
-    <button class="submit">Submit</button>
-  </div>
-
-  <div id="contact" class="card panel">
-    <h3>Contact Us</h3>
-    <input placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button class="submit">Send</button>
-  </div>
+</section>
 
 </div>
 
-<script>
-function showPanel(id){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-</script>
-
+<script src="auth.js"></script>
 </body>
 </html>
