@@ -1,72 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Providify</title>
 
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
 body{
-  margin:0;
-  font-family:Inter,Arial;
-  background:#020617;
+  background:radial-gradient(circle at top,#0b1220,#020617);
   color:#fff;
+  min-height:100vh;
+  display:flex;
 }
 .sidebar{
-  position:fixed;
-  left:0;
-  top:0;
-  width:220px;
-  height:100%;
-  background:#020617;
-  border-right:1px solid #1e293b;
-  padding:20px;
+  width:260px;
+  padding:24px;
+  border-right:1px solid rgba(255,255,255,.08);
 }
+.sidebar h1{font-size:26px;font-weight:800;margin-bottom:30px}
 .sidebar button{
-  width:100%;
-  margin-bottom:12px;
-  padding:14px;
-  background:#020617;
-  color:#fff;
-  border:1px solid #1e293b;
-  border-radius:12px;
-  font-size:16px;
-}
-.main{
-  margin-left:240px;
-  padding:60px;
-}
-.hero h1{
-  font-size:56px;
-}
-.card{
-  background:#020617;
-  border:1px solid #1e293b;
-  border-radius:18px;
-  padding:30px;
-  margin-top:40px;
-}
-input{
   width:100%;
   padding:14px;
   margin-bottom:14px;
-  border-radius:12px;
-  border:1px solid #334155;
-  background:#020617;
+  border-radius:14px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
   color:#fff;
+  cursor:pointer;
+}
+.sidebar button:hover{background:rgba(255,255,255,.1)}
+.main{
+  flex:1;
+  padding:60px;
+}
+.hero h2{
+  font-size:56px;
+  font-weight:800;
+  line-height:1.1;
+}
+.hero p{
+  margin-top:20px;
+  color:#cbd5f5;
+  max-width:520px;
+}
+.section{display:none;margin-top:40px;max-width:520px}
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:12px;
+  border:none;
 }
 .btn{
   width:100%;
   padding:14px;
-  border-radius:999px;
-  border:none;
   background:#2563eb;
-  color:#fff;
-  font-size:16px;
+  border:none;
+  border-radius:12px;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
 }
-.icons a{
-  margin-right:14px;
-  font-size:22px;
+.socials a{
+  font-size:28px;
+  margin-right:16px;
+  color:white;
+}
+.proofs span{
+  display:inline-block;
+  margin:6px;
+  padding:8px 14px;
+  border-radius:20px;
+  background:rgba(255,255,255,.08)
 }
 </style>
 </head>
@@ -74,43 +88,93 @@ input{
 <body>
 
 <div class="sidebar">
-  <h2>Providify</h2>
-  <button onclick="alert('About sidebar')">About</button>
-  <button onclick="alert('Feedback sidebar')">Feedback</button>
-  <button onclick="alert('Contact sidebar')">Contact</button>
-  <button onclick="document.getElementById('login').scrollIntoView()">Login</button>
+  <h1>Providify</h1>
+  <button onclick="show('about')">About</button>
+  <button onclick="show('feedback')">Feedback</button>
+  <button onclick="show('contact')">Contact</button>
+  <button onclick="show('login')">Login</button>
 </div>
 
 <div class="main">
-
-<section class="hero">
-  <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
-  <p>Proven, ethical Google review growth. No fake reviews. No risk.</p>
-</section>
-
-<section class="card">
-  <h3>Countries Proof</h3>
-  🇺🇸 USA • 🇬🇧 UK • 🇨🇦 Canada • 🇦🇪 UAE
-</section>
-
-<section id="login" class="card">
-  <h2>Admin & Client Login</h2>
-
-  <input id="email" placeholder="Email">
-  <input id="password" type="password" placeholder="Password">
-
-  <button class="btn" onclick="loginUser()">Login</button>
-  <br><br>
-  <button class="btn" onclick="signupUser()">Create New Account</button>
-
-  <div class="icons">
-    <a href="https://wa.me/447765472559" target="_blank">💬 WhatsApp</a>
-    <a href="https://instagram.com/providyfy" target="_blank">📩 Instagram</a>
+  <div class="hero" id="hero">
+    <h2>We've Done This Before.<br/>And We'll Do It Again.</h2>
+    <p>Proven, ethical Google review growth. No fake reviews. No risk.</p>
+    <div class="proofs">
+      <span>🇮🇳 India</span>
+      <span>🇺🇸 USA</span>
+      <span>🇬🇧 UK</span>
+      <span>🇨🇦 Canada</span>
+      <span>🇦🇺 Australia</span>
+    </div>
   </div>
-</section>
 
+  <div id="about" class="section">
+    <h3>About</h3>
+    <p>We help brands grow real Google reviews ethically and safely.</p>
+  </div>
+
+  <div id="feedback" class="section">
+    <h3>Feedback</h3>
+    <textarea placeholder="Your feedback"></textarea>
+    <button class="btn">Submit</button>
+  </div>
+
+  <div id="contact" class="section">
+    <h3>Contact</h3>
+    <input placeholder="Your email"/>
+    <textarea placeholder="Message"></textarea>
+    <div class="socials">
+      <a href="https://instagram.com/providyfy" target="_blank"><i class="ph ph-instagram-logo"></i></a>
+      <a href="https://wa.me/91XXXXXXXXXX" target="_blank"><i class="ph ph-whatsapp-logo"></i></a>
+    </div>
+  </div>
+
+  <div id="login" class="section">
+    <h3>Login / Signup</h3>
+    <input id="email" placeholder="Email"/>
+    <input id="password" type="password" placeholder="Password"/>
+    <button class="btn" onclick="login()">Login</button>
+    <button class="btn" style="margin-top:10px;background:#16a34a" onclick="signup()">Create Account</button>
+  </div>
 </div>
 
-<script src="auth.js"></script>
+<script>
+const supabase = supabase.createClient(
+  "https://gpighjxdwcjjnxdgqvvr.supabase.co",
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdwaWdoanhkd2Nqam54ZGdxdnZyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYwOTY1OTMsImV4cCI6MjA4MTY3MjU5M30.DGS_UVANoD9k2BNGCqswwqMgDioRpFM--5rpS7IKMRE"
+);
+
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+  document.getElementById('hero').style.display='none';
+  document.getElementById(id).style.display='block';
+}
+
+async function login(){
+  const email=document.getElementById('email').value;
+  const password=document.getElementById('password').value;
+
+  const {data,error}=await supabase.auth.signInWithPassword({email,password});
+  if(error){alert(error.message);return;}
+
+  const {data:profile}=await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id',data.user.id)
+    .single();
+
+  if(profile.role==='admin') location.href='admin.html';
+  else location.href='client.html';
+}
+
+async function signup(){
+  const email=document.getElementById('email').value;
+  const password=document.getElementById('password').value;
+  const {error}=await supabase.auth.signUp({email,password});
+  if(error) alert(error.message);
+  else alert("Account created. Now login.");
+}
+</script>
+
 </body>
 </html>
