@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Providify | Proven Google Review Growth</title>
 
-<meta name="description" content="We help businesses worldwide grow genuine Google reviews safely.">
-<meta name="robots" content="index, follow">
+<meta name="description" content="We help businesses worldwide grow genuine Google reviews safely. Proven results across countries.">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 :root{
@@ -25,7 +27,7 @@ body.dark{
 *{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Inter,system-ui,Arial;
+  font-family:system-ui,Arial;
   background:var(--bg);
   color:var(--dark);
 }
@@ -38,11 +40,7 @@ header{
   border-bottom:1px solid #e5e7eb;
   position:sticky;top:0;z-index:50;
 }
-.nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+.nav{display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:26px;font-weight:900;color:var(--primary)}
 .menu-btn{font-size:26px;cursor:pointer}
 
@@ -50,13 +48,12 @@ header{
 .side-menu{
   position:fixed;
   top:0;left:-260px;
-  width:260px;
-  height:100%;
+  width:260px;height:100%;
   background:#020617;
   color:#fff;
   padding:30px 20px;
   transition:.3s;
-  z-index:100;
+  z-index:200;
 }
 .side-menu.active{left:0}
 .side-menu a{
@@ -65,22 +62,24 @@ header{
   font-size:18px;
   font-weight:600;
 }
-.close{font-size:24px;cursor:pointer}
+.close{font-size:22px;cursor:pointer}
 
-/* BUTTON */
-.btn{
-  background:linear-gradient(135deg,#2563eb,#1e40af);
-  color:#fff;
-  padding:14px 26px;
-  border-radius:999px;
-  font-weight:700;
-  display:inline-block;
+/* FEEDBACK PANEL */
+.feedback-panel{
+  position:fixed;
+  top:0;right:-420px;
+  width:420px;height:100%;
+  background:var(--card);
+  padding:30px;
+  transition:.3s;
+  z-index:300;
 }
+.feedback-panel.active{right:0}
 
 /* SECTIONS */
 section{padding:80px 0}
-h1{font-size:44px}
-h2{font-size:34px;margin-bottom:12px}
+h1{font-size:42px}
+h2{font-size:32px}
 p{color:var(--muted);line-height:1.7}
 
 /* HERO */
@@ -96,6 +95,7 @@ p{color:var(--muted);line-height:1.7}
   padding:28px;
   border-radius:18px;
   border:1px solid #e5e7eb;
+  box-shadow:0 14px 32px rgba(0,0,0,.08);
 }
 
 /* GRID */
@@ -103,33 +103,62 @@ p{color:var(--muted);line-height:1.7}
 .grid-4{grid-template-columns:repeat(4,1fr)}
 .grid-2{grid-template-columns:repeat(2,1fr)}
 
+/* RESULTS / PROOFS */
+.carousel{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  padding-bottom:10px;
+}
+.review-card{min-width:280px}
+.flag{font-size:18px;font-weight:700}
+
 /* FORM */
 input,textarea{
   width:100%;
   padding:14px;
-  border-radius:12px;
+  border-radius:10px;
   border:1px solid #cbd5e1;
   margin-bottom:14px;
 }
 
-/* FLOAT */
-.wa{
+/* BUTTON */
+.btn{
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:#fff;
+  padding:14px 26px;
+  border-radius:999px;
+  font-weight:700;
+  border:none;
+}
+
+/* FLOAT SOCIAL */
+.social-float{
   position:fixed;
   right:20px;
   bottom:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 20px;
-  border-radius:999px;
-  font-weight:800;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
+.social-float a{
+  width:54px;height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  color:#fff;
+  font-size:24px;
+}
+.ig{background:#E1306C}
+.wa{background:#25D366}
 
 /* FOOTER */
 footer{
   background:#020617;
   color:#cbd5f5;
   text-align:center;
-  padding:40px 20px;
+  padding:40px;
 }
 
 /* RESPONSIVE */
@@ -148,9 +177,19 @@ footer{
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#how" onclick="toggleMenu()">How It Works</a>
   <a href="#results" onclick="toggleMenu()">Results</a>
-  <a href="#feedback" onclick="toggleMenu()">Feedback</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="#" onclick="toggleDark()">🌙 Toggle Dark</a>
+  <a href="#" onclick="openFeedback()">Feedback</a>
+  <a href="#" onclick="toggleDark()">🌙 Dark Mode</a>
+</div>
+
+<!-- FEEDBACK PANEL -->
+<div class="feedback-panel" id="feedbackPanel">
+  <h2>Feedback</h2>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea placeholder="Your Feedback"></textarea>
+    <button class="btn">Submit</button>
+  </form>
 </div>
 
 <header>
@@ -162,81 +201,100 @@ footer{
 
 <main class="container">
 
+<!-- HERO -->
 <section class="hero">
   <div>
     <h1>We’ve Done This Before.<br>And We’ll Do It Again.</h1>
-    <p>Proven, ethical Google review growth worldwide.</p>
-    <a href="#contact" class="btn">💬 Free Strategy</a>
+    <p>Ethical Google review growth for businesses worldwide.</p>
+    <a href="#contact" class="btn">Free Strategy</a>
   </div>
   <div class="card">
     <ul>
-      <li>✔ Real reviews</li>
+      <li>✔ Real customer reviews</li>
+      <li>✔ Google-safe process</li>
       <li>✔ Multi-country experience</li>
-      <li>✔ Google-safe methods</li>
     </ul>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about">
   <h2>About Providify</h2>
   <div class="grid grid-2">
     <div class="card">
-      <p>
-        Providify helps businesses build trust and visibility using
-        ethical Google review strategies — no shortcuts, no risk.
-      </p>
+      Providify helps businesses grow trust and visibility through
+      policy-safe Google review strategies.
     </div>
     <div class="card">
-      <ul>
-        <li>✔ Policy-safe</li>
-        <li>✔ Long-term growth</li>
-        <li>✔ Proven results</li>
-      </ul>
+      ✔ No fake reviews<br>
+      ✔ Long-term growth<br>
+      ✔ Proven repeatable systems
     </div>
   </div>
 </section>
 
+<!-- HOW -->
 <section id="how">
   <h2>How It Works</h2>
   <div class="grid grid-4">
     <div class="card">🔍 Audit</div>
     <div class="card">🧠 Strategy</div>
-    <div class="card">⭐ Reviews</div>
-    <div class="card">📈 Growth</div>
+    <div class="card">⭐ Review Growth</div>
+    <div class="card">📈 Visibility Boost</div>
   </div>
 </section>
 
-<section id="feedback">
-  <h2>Feedback</h2>
-  <div class="card">
-    <form>
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <textarea placeholder="Your Feedback"></textarea>
-      <button class="btn">Submit</button>
-    </form>
+<!-- RESULTS / PROOFS -->
+<section id="results">
+  <h2>Real Google Review Results</h2>
+  <p>Proof of work across different countries.</p>
+
+  <div class="carousel">
+    <div class="card review-card">
+      <div class="flag">🇺🇸 USA</div>
+      <p><b>3.6 → 4.6 Rating</b><br>Restaurant – New York</p>
+    </div>
+
+    <div class="card review-card">
+      <div class="flag">🇬🇧 UK</div>
+      <p><b>+48 Reviews</b><br>Dental Clinic – London</p>
+    </div>
+
+    <div class="card review-card">
+      <div class="flag">🇨🇦 Canada</div>
+      <p><b>Map Pack Boost</b><br>Home Services – Toronto</p>
+    </div>
+
+    <div class="card review-card">
+      <div class="flag">🇦🇪 UAE</div>
+      <p><b>High Trust Profile</b><br>Real Estate – Dubai</p>
+    </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
-  <h2>Contact Us</h2>
+  <h2>Contact</h2>
   <div class="card">
-    <form>
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <textarea placeholder="Tell us about your business"></textarea>
-      <button class="btn">Send</button>
-    </form>
+    DM us directly on Instagram or WhatsApp.
   </div>
 </section>
 
 </main>
 
 <footer>
-  <p>© 2025 Providify. All rights reserved.</p>
+  © 2025 Providify. Proven Google Review Growth.
 </footer>
 
-<a class="wa" href="https://wa.me/447765472559">💬 WhatsApp</a>
+<!-- SOCIAL FLOAT -->
+<div class="social-float">
+  <a class="ig" href="https://www.instagram.com/direct/t/providyfy/" target="_blank">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a class="wa" href="https://wa.me/447765472559" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
 
 <script>
 function toggleMenu(){
@@ -245,9 +303,11 @@ function toggleMenu(){
 function toggleDark(){
   document.body.classList.toggle("dark");
 }
+function openFeedback(){
+  toggleMenu();
+  document.getElementById("feedbackPanel").classList.add("active");
+}
 </script>
 
 </body>
 </html>
-  
-  
