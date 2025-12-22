@@ -122,13 +122,6 @@ p{color:var(--muted);line-height:1.7}
   color:var(--accent)
 }
 
-/* GRIDS */
-.grid-3{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px
-}
-
 /* FLOAT */
 .float{
   position:fixed;
@@ -141,23 +134,8 @@ p{color:var(--muted);line-height:1.7}
   font-weight:800
 }
 
-/* FOOTER ICONS */
-.socials{
-  display:flex;
-  justify-content:center;
-  gap:24px;
-  margin-top:20px;
-  font-size:26px;
-}
-.socials a{
-  color:#cbd5f5;
-}
-.socials a:hover{
-  color:#25D366;
-}
-
 @media(max-width:900px){
-  .hero,.grid-3{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
   h1{font-size:36px}
 }
 </style>
@@ -172,6 +150,7 @@ p{color:var(--muted);line-height:1.7}
 
 <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
+<!-- SIDEBAR WITH FORMSPREE -->
 <div class="sidebar" id="sidebar">
   <a onclick="showSide('about')">About</a>
   <a onclick="showSide('feedback')">Feedback</a>
@@ -204,55 +183,31 @@ p{color:var(--muted);line-height:1.7}
 <section class="hero">
   <div>
     <h1>Real Google Reviews.<br>No Fakes. Google-Safe.</h1>
-    <p>We help businesses worldwide grow honest Google reviews using ethical, compliant systems.</p>
+    <p>We help businesses worldwide grow honest Google reviews using ethical systems.</p>
     <div class="cta">
       <a class="btn" href="https://wa.me/447765472559" target="_blank">💬 Free Strategy</a>
       <button class="btn outline" onclick="openSidebar();showSide('contact')">📩 Contact</button>
     </div>
   </div>
+
+  <!-- 🔥 JOTFORM MAIN LEAD FORM -->
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" style="width:100%;border-radius:14px">
+    <iframe
+      id="JotFormIFrame-253551524616052"
+      title="Request Digital Services"
+      allow="geolocation; microphone; camera; fullscreen; payment"
+      src="https://form.jotform.com/253551524616052"
+      style="width:100%;height:560px;border:none;"
+    ></iframe>
+    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+    <script>
+      window.jotformEmbedHandler(
+        "iframe[id='JotFormIFrame-253551524616052']",
+        "https://form.jotform.com/"
+      );
+    </script>
   </div>
 </section>
-
-<section class="card">
-<h2>What Providyfy Does</h2>
-<p>Providyfy is built for businesses that care about long-term reputation. We design ethical systems that encourage real customers to leave genuine feedback on Google, improving trust, visibility, and conversions.</p>
-<p>Unlike risky providers, we focus on compliance, stability, and sustainable growth.</p>
-</section>
-
-<section class="card">
-<h2>Why Google Reviews Matter</h2>
-<p>Google reviews directly impact local rankings, customer trust, and buying decisions. Businesses with consistent positive reviews outperform competitors in Maps and search results.</p>
-<p>Even a small improvement in rating can significantly increase calls and visits.</p>
-</section>
-
-<section class="card">
-<h2>Industries We Serve</h2>
-<p>Restaurants, clinics, real estate, home services, gyms, hotels, consultants, and local retail businesses.</p>
-</section>
-
-<section class="card">
-<h2>Our Ethical Method</h2>
-<p>No bots. No fake accounts. No automation. We work only with real customer journeys designed to be Google-safe.</p>
-</section>
-
-<section class="card">
-<h2>Frequently Asked Questions</h2>
-<p><b>Is this safe?</b> Yes, fully policy compliant.</p>
-<p><b>How fast?</b> 14–30 days typically.</p>
-<p><b>Fake reviews?</b> Never.</p>
-</section>
-
-<footer class="card">
-<p>© 2025 Providyfy — Ethical Google Review Growth</p>
-<p>WhatsApp: +44 7765 472559</p>
-
-<div class="socials">
-  <a href="https://wa.me/447765472559" target="_blank"><i class="fab fa-whatsapp"></i></a>
-  <a href="https://instagram.com/providyfy" target="_blank"><i class="fab fa-instagram"></i></a>
-</div>
-</footer>
 
 </div>
 
