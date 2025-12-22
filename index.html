@@ -96,7 +96,6 @@ a{text-decoration:none;color:inherit}
 }
 h1{font-size:46px}
 h2{font-size:34px}
-h3{font-size:22px}
 p{color:var(--muted);line-height:1.7}
 
 /* HERO */
@@ -114,7 +113,8 @@ p{color:var(--muted);line-height:1.7}
   border-radius:999px;
   background:linear-gradient(135deg,#2563eb,#1e40af);
   color:#fff; font-weight:700;
-  border:none
+  border:none;
+  cursor:pointer
 }
 .btn.outline{
   background:transparent;
@@ -122,7 +122,7 @@ p{color:var(--muted);line-height:1.7}
   color:var(--accent)
 }
 
-/* FLOAT */
+/* FLOAT BUTTONS */
 .float{
   position:fixed;
   right:20px;
@@ -131,8 +131,25 @@ p{color:var(--muted);line-height:1.7}
   color:#022c22;
   padding:16px 22px;
   border-radius:999px;
-  font-weight:800
+  font-weight:800;
+  z-index:999
 }
+.float.jot{
+  bottom:90px;
+  background:#2563eb;
+  color:#fff;
+}
+
+/* FOOTER ICONS */
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  margin-top:20px;
+  font-size:26px;
+}
+.socials a{color:#cbd5f5}
+.socials a:hover{color:#25D366}
 
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
@@ -150,16 +167,17 @@ p{color:var(--muted);line-height:1.7}
 
 <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
 
-<!-- SIDEBAR WITH FORMSPREE -->
 <div class="sidebar" id="sidebar">
   <a onclick="showSide('about')">About</a>
   <a onclick="showSide('feedback')">Feedback</a>
   <a onclick="showSide('contact')">Contact</a>
+  <a onclick="openJotform()">Request Services (Jotform)</a>
 
   <div id="about" class="side" style="display:none">
     <p>Providyfy helps businesses grow genuine Google reviews ethically and safely.</p>
   </div>
 
+  <!-- ✅ FORMSPREE (UNCHANGED) -->
   <div id="feedback" class="side" style="display:none">
     <form action="https://formspree.io/f/mvgenpdj" method="POST">
       <input name="name" placeholder="Your name">
@@ -183,49 +201,79 @@ p{color:var(--muted);line-height:1.7}
 <section class="hero">
   <div>
     <h1>Real Google Reviews.<br>No Fakes. Google-Safe.</h1>
-    <p>We help businesses worldwide grow honest Google reviews using ethical systems.</p>
+    <p>We help businesses worldwide grow honest Google reviews using ethical, compliant systems.</p>
     <div class="cta">
       <a class="btn" href="https://wa.me/447765472559" target="_blank">💬 Free Strategy</a>
       <button class="btn outline" onclick="openSidebar();showSide('contact')">📩 Contact</button>
     </div>
   </div>
-
-  <!-- 🔥 JOTFORM MAIN LEAD FORM -->
   <div class="card">
-    <iframe
-      id="JotFormIFrame-253551524616052"
-      title="Request Digital Services"
-      allow="geolocation; microphone; camera; fullscreen; payment"
-      src="https://form.jotform.com/253551524616052"
-      style="width:100%;height:560px;border:none;"
-    ></iframe>
-    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
-    <script>
-      window.jotformEmbedHandler(
-        "iframe[id='JotFormIFrame-253551524616052']",
-        "https://form.jotform.com/"
-      );
-    </script>
+    <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" style="width:100%;border-radius:14px">
   </div>
 </section>
 
+<footer class="card">
+<p>© 2025 Providyfy — Ethical Google Review Growth</p>
+<p>WhatsApp: +44 7765 472559</p>
+</footer>
+
 </div>
 
+<!-- FLOAT BUTTONS -->
 <a class="float" href="https://wa.me/447765472559" target="_blank">💬 WhatsApp</a>
+<button class="float jot" onclick="openJotform()">📋 Request Service</button>
+
+<!-- JOTFORM MODAL -->
+<div id="jotWrap" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000">
+  <div style="max-width:900px;margin:5% auto;background:#020617;border-radius:14px;position:relative">
+    <button onclick="closeJotform()" style="position:absolute;right:12px;top:10px;background:none;color:#fff;font-size:20px;border:none">✕</button>
+    <iframe
+      id="JotFormIFrame-253551524616052"
+      src="https://form.jotform.com/253551524616052"
+      style="width:100%;height:600px;border:none"
+      allow="camera; microphone; payment">
+    </iframe>
+  </div>
+</div>
+
+<!-- AI AGENT -->
+<script>
+(function(){
+const b=document.createElement("div");
+b.innerHTML="🤖";
+b.style="position:fixed;bottom:160px;right:20px;width:60px;height:60px;background:#2563eb;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;z-index:9999";
+document.body.appendChild(b);
+
+const c=document.createElement("div");
+c.style="position:fixed;bottom:230px;right:20px;width:320px;height:420px;background:#020617;border-radius:14px;display:none;flex-direction:column;z-index:9999;border:1px solid rgba(255,255,255,.1)";
+c.innerHTML=`<div style="padding:12px;background:#2563eb;font-weight:700">Providyfy AI 🤖</div>
+<div id="cb" style="flex:1;padding:12px;overflow:auto;font-size:14px">
+<p><b>AI:</b> Hi 👋 Want help with reviews or pricing?</p></div>
+<div style="padding:10px"><input id="ci" placeholder="Type here..." style="width:100%;padding:10px;border-radius:8px;border:none;background:#020617;color:#fff"></div>`;
+document.body.appendChild(c);
+
+b.onclick=()=>c.style.display=c.style.display==="flex"?"none":"flex";
+document.getElementById("ci").onkeypress=e=>{
+if(e.key==="Enter"){
+cb.innerHTML+=`<p><b>You:</b> ${ci.value}</p>`;
+ci.value="";
+setTimeout(()=>{
+cb.innerHTML+=`<p><b>AI:</b> Best next step 👉 <a href="https://wa.me/447765472559" style="color:#25D366">Chat on WhatsApp</a></p>`;
+cb.scrollTop=cb.scrollHeight;
+},500);
+}};
+})();
+</script>
 
 <script>
-function openSidebar(){
-  sidebar.classList.add('active');
-  overlay.classList.add('active');
-}
-function closeSidebar(){
-  sidebar.classList.remove('active');
-  overlay.classList.remove('active');
-}
+function openSidebar(){sidebar.classList.add('active');overlay.classList.add('active')}
+function closeSidebar(){sidebar.classList.remove('active');overlay.classList.remove('active')}
 function showSide(id){
   document.querySelectorAll('.side').forEach(s=>s.style.display='none');
   document.getElementById(id).style.display='block';
 }
+function openJotform(){document.getElementById("jotWrap").style.display="block"}
+function closeJotform(){document.getElementById("jotWrap").style.display="none"}
 </script>
 
 </body>
